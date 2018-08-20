@@ -1,0 +1,94 @@
+[MUSIC PLAYING]
+
+In the next example, we consider the case
+where we want to replace an outlier instead of removing the outlier.
+Often, the upcoming analysis requires that we may not reduce
+the number of values in an array.
+The consequence is that we must find a replacement value for the outlier.
+Since we do not know the actual value our replacement value will be a guess.
+This process is called imputation.
+One of the simplest and most common forms of imputation
+is mean imputation, where the arithmetic mean of the data set
+is used as the replacement value for every outlier.
+Let's consider a simple data set that consists of 10 values.
+
+Each value represents the age of a preschooler in day care.
+An array is created on the right-hand side of the assignment using
+the numpy array function.
+The array is assigned to x.
+This array is very small, which allows us
+to easily see that the fourth value is 99, and that it is an outlier.
+The simplicity of this example allows us to see the steps of the process
+that we will use to remove outliers.
+We calculate the high and low limits for values that are not outliers.
+The limits are two standard deviations from the mean.
+We want to find the outlier values.
+To that end, we create a Boolean array called "flag bad"
+through an assignment.
+
+Flag bad" will have true for every outlier in the data set x and a false
+for the values within the limits.
+The right-hand side of the assignment is a Boolean statement
+where the values in x are less than the low limit
+or higher than the high limit.
+The element-wise operator for or is the single vertical bar.
+For this simple example, you can review the values in the Boolean array.
+
+Before, this Boolean array is the only item that has the value true.
+We want an assignment that will replace the values in the data set
+x for which the Boolean array is true.
+The left-hand side of the assignment is the data
+set x indexed by the Boolean array called "flag bad."
+This expression on the left-hand side of the assignment
+refers to all the outliers in the data set x.
+The right-hand side of the assignment is the mean of the data set x.
+The data set x has changed and for this exercise,
+we should examine its contents.
+The data set x still has 10 values because the outlier was replaced
+and not removed.
+The outlier was the fourth value of the data set.
+The outlier was replaced by the mean of the data set.
+The mean of the data set is 12.
+
+The data set should represent ages of preschoolers.
+12 is not a good guess for the age of a preschooler.
+The problem is that the outlier had a large influence on the mean.
+Instead of an imputation based on the whole data set that includes outliers,
+we can base our imputation only on the values that are not outliers.
+We need to get the Boolean array that indicates the values that
+are within the specified limits.
+In a previous exercise, we calculated this Boolean array
+and assigned it to "flag good.
+We should note that "flag bad" is the complement of "flag good.
+If we calculate one, then we can get the other by using the complement operator.
+If we do not have "flag good anymore from the previous example,
+we can easily get it now.
+
+In this second attempt to impute and replace,
+we use an assignment that is similar to the previous replacement.
+The left-hand side of the assignment is the data
+set x indexed by the Boolean array called "flag bad."
+The expression on the left-hand side of the assignment
+refers to all the outliers in the data set x.
+
+The expression on the right-hand side of the assignment
+is indexed by the Boolean array.
+
+The right-hand side of the assignment is the mean
+of the values in data set x that are not outliers.
+
+When we check the values in the data set x,
+we see that the assignment replaces the item index that
+was marked as an outlier with a value of approximately 2.3, which is reasonable.
+This method is not as sensitive to outliers.
+Another method uses a median instead of an arithmetic mean.
+A median is less sensitive to outliers too.
+
+We can redo the previous example, but our imputation value
+is not the mean of the values in data set x that are not outliers.
+Instead, our imputation value is the median of the whole data set x.
+
+When we check the values of the data set,
+we see that the imputed value is 2.5.
+2.5 it's reasonable.
+[MUSIC PLAYING]

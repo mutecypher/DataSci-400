@@ -1,0 +1,276 @@
+[MUSIC PLAYING]
+
+Hello.
+In this lesson, we're going to learn some basic table manipulation skills
+in Python using the pandas package.
+Before working through this lesson, please
+make sure you're already familiar with the basic pandas operations.
+Today, we'll go over several basic table manipulation
+skills in the popular pandas package.
+In pandas, the terms DataFrame and table are synonymous,
+but for consistency, from here on out, you'll
+hear me refer to a table as a DataFrame.
+We'll learn how to add rows and columns to a DataFrame, how to rename columns,
+how to merge two DataFrames based on common information, how
+to set a DataFrame index that allows us to easily manipulate a DataFrame, how
+to access individual cells, and how to perform basic math operations,
+such as adding and multiplying columns and summing a row.
+For this lesson, we're going to walk through a scenario that
+requires us to combine two tables in order
+to calculate total yearly commission payouts
+for each employee in a small company.
+First, we're going to learn how to create two tables.
+One, using the numpy random int function to randomly generate
+quarterly sales totals for each employee,
+and the other table to store employee commission and contact info.
+We'll combine these two tables using the common employee ID field.
+Then we'll parse the tables so that we can sum all quarterly sales,
+then multiply that amount by the employee's commission percent
+to calculate yearly commission.
+We'll start things off by creating the DataFrames that we'll need.
+The first DataFrame will use the numpy randint function
+to create a table of random integers.
+We'll convert these integers to floats and use them
+to generate sales totals by quarter.
+The second DataFrame we'll create by converting
+a Python dictionary that stores employee name and commission details.
+For each slide in this lesson, we'll build
+on the code we created in the previous slide.
+So make sure that you stop and work through the code in every section
+before continuing on.
+
+OK, first we'll import the required pandas
+and NumPy modules, giving each one a shorter alias for lazy typing.
+Before we use NumPy to create random sales numbers,
+let's use the random.seed function to set a seed each time the script is
+run that will ensure our randomly generated numbers are
+the same each time we run this code.
+Next, we'll create an array called employee_sales
+and use the np.randint function to generate
+a list of random sales between 103,000, with a matrix size of three
+rows and four columns.
+We'll cast the output from an integer to a float
+by calling the astype float method on the resulting matrix.
+This will convert the integers to floats, which
+is easier when working with money.
+Let's print this out and take a look at the results.
+
+We can see here that we have a matrix of floats
+with three rows and four columns.
+This is the output that we want, but it's not a DataFrame yet.
+Let's use pandas to automatically convert this into a DataFrame
+by calling the pd.DataFrame method on the resulting matrix.
+
+We'll store that output in a variable called sales_df
+to signify that this is a DataFrame.
+We'll add an argument here to specify an arbitrary column name for each column.
+It could use real column names here, but I
+want to show you how to change these manually later on.
+The second table we'll create by converting a Python dictionary
+to a pandas DataFrame.
+First, let's create a Python dictionary to store an ID, first name, last name,
+and commission percent for each employee.
+Once we have our dictionary, pandas this allows us to easily convert it
+to a DataFrame by simply calling the pd.DataFrame function on the dictionary
+object.
+
+It looks like we forgot to add an employee ID
+column to our sales DataFrame.
+You can do that by copying the column from our info DataFrame,
+but this would only work if we are absolutely sure the two
+tables are in the same order.
+If we are unsure of the table order, we can
+create an explicit list of employee IDs, and use that list
+to create an ID column instead.
+Building on the DataFrames that we already created,
+let's add an employee ID column to the sales_df.
+
+If we are absolutely certain that two tables are in the same order,
+we can just grab the column from our info DataFrame.
+To do this we create a new column using the DataFrame_name square brackets
+string with new column name format, and assign
+it a value that equals the DataFrame name--
+column name that we want to copy.
+
+But if we're not sure of the order of each table,
+it's safer to create a list with a specific order of employee ID
+to add to our table.
+
+We'll use the same DataFrame_name square brackets
+string with the new column name format, and instead
+assign the list to that column.
+If we don't need to build the list using some other function
+or pulling data from another source, we can also just directly assign a list
+to the column name.
+
+While you can quickly change column names by giving the DataFrames column
+object a list of new names, this can be a risky move,
+because it doesn't ensure that the order of the new column names
+is in the same order as the old column names.
+A better method is to create a Python dictionary that
+maps the old name to a corresponding new name,
+and then use pandas rename method to change each column name
+independent of order.
+Each DataFrame object comes with a number
+of attributes that let us interact with various features of a DataFrame,
+such as size, shape, and column.
+We can access these using the format DataFrame_name.attribute.
+We can create a list of names that is the same length of the number
+of columns in the DataFrame, and assign those names
+to each column using DataFrame.column equals, just like this.
+
+While this is a quick and easy way to change column names,
+what if we don't know the exact order of the columns or if the order of columns
+has changed since we last interacted with the table?
+Instead of using a fixed list, we can create
+a Python dictionary that directly maps the old name to the new name
+for each column.
+We'll call it new_col_names.
+
+Now we can use the rename method on the DataFrame,
+feeding the column's argument, the mapping dictionary
+called new_col_names, and using the argument in place
+equals true to signify that we want this change made to the original DataFrame
+instead of making a new copy of the DataFrame.
+
+There are two functions available in pandas for combining DataFrames,
+the merge and join functions.
+Both are very similar, but the merge method
+is what we'll use here, since we'll be combining
+the two DataFrames by mapping rows together
+that contain the same customer ID.
+The pandas merge function takes several arguments
+to customize how you join tables.
+You can find more information on each argument
+by Googling pandas DataFrame merge.
+We'll be using the how argument to specify
+that we would like an inner join, keeping rows from both DataFrames
+where the customer ID matches.
+If we use the left join, we would keep all rows from whatever table
+we place on the left side of the argument.
+This works the same way for a right join.
+If we use an outer join, we keep all rows
+from both tables, even when there is no matching customer ID.
+Let's create a new combined DataFrame called combodf.
+We'll use the info df DataFrame first on the left side of the join,
+because even if we don't find a corresponding row in the sales
+DataFrame, we still want to keep all the rows from the info DataFrame.
+Frame.
+Even though it's the default join type, we'll
+use the argument how equals inner, just so that you can see how to do it.
+And we'll use the on argument to tell our join to match together
+both tables on the ID column.
+Let's take a look at our new combodf.
+
+Now that we've combined our DataFrames into one table, let's
+set an index to make it easier to access cells by ID
+and insert rows into the DataFrame.
+Setting an index will also make downstream operations more manageable.
+
+We'll use the ID column as our index, allowing
+us to insert rows with a new employee ID and pull out
+data for a specific employee.
+To set an index on the ID column, we can set the DataFrame's index attribute
+to the ID column.
+Then we can drop the old ID column because it now contains
+unnecessarily duplicated information.
+You can do this using the DataFrame's drop method
+and providing the column name of the column we want to drop, ID,
+as the argument to the drop function.
+
+Before we can add a row, let's just do a quick review of how to access
+information inside a pandas DataFrame.
+The DataFrame.log method works on a DataFrame index
+label, such as ABCD or Q1 sales.
+
+The DataFrame's .ILog method works on a DataFrame's index integer position,
+such as 0, 1, and 2.
+The Dataframe.x method was designed to work on a mix of label and position,
+but it was causing so many issues that it's now deprecated.
+DataFrame.log can pull out each row corresponding to an index label.
+For example, combodf.log 1, 0, 1, 5, will pull out
+the row where our index is equal to the label 1, 0, 1, 1, 5.
+We can also pull out just specific columns
+from the row where the index matches a specific label
+by adding in a list of the column names we want to pull out, just like this.
+
+DataFrame.ILog works based on an index position,
+pulling out the row that matches that specific position in an index.
+If we want to pull out the first row of the data frame,
+we would use DataFrame.ILog 0.
+
+Now that we've reviewed how to access information
+in a DataFrame using log and ILog.
+We can use this information to help us add rows to the DataFrame.
+Let's say we forgot to add an employee to our table.
+We can easily add a new road to our DataFrame using the log function.
+
+To add a row to a DataFrame, we can use the log function
+to add a new index label for the inserted row.
+Here we'll create a new row with an index of 1, 9, 9, 1, 7.
+Then we assign it a list of values that we want to appear in each column,
+in the same order as the columns appear in your DataFrame.
+Let's take a look to make sure we properly added the new row.
+
+Now that we have our DataFrame properly parsed and merged,
+we can sum the sales for each quarter by row,
+creating a new total sales column that stores
+total yearly sales for each employee.
+There are a couple of ways we can sum rows in a DataFrame.
+If you only have a few columns to add, you
+can simply create a new DataFrame column,
+and assign in the value of adding each column.
+
+But if you have several columns you would like to sum,
+you can call the sum function on a subset list
+of just the columns you want to sum.
+
+When we do that with a new argument, you can see that each of our columns
+ends up with a non-value.
+We can fix this by adding an access argument, where 1 equals sum by column
+and 0 equals by row.
+
+Now we have all the information we need to calculate the commission
+payout for each employee.
+As our final step, we'll create a new column
+to store the yearly commission payout for each employee labeled
+employee_total_com.
+We can multiply the total commission by the employee's totally yearly sales
+to calculate everyone's yearly commission payout.
+As a final step, we'll create a new column
+in our DataFrame called employee_total_com
+to store their total commission payout.
+Now we can simply multiply the values of com percent column
+by the summed total sales column we created in the last step
+to get their total yearly payout.
+
+Hm, wait.
+That actually looks like a pretty generous commission payout.
+Where do I sign up?
+Can you figure out what went wrong?
+Let's make fixing this error your lesson challenge.
+The commission payout we calculated looks really large.
+We realize that we need to first convert our commission percent
+column into a percentage before multiplying against the total sales
+column.
+Please fix this before we get fired.
+There are two common ways and probably several others
+that you could have used to solve this problem.
+We can either multiply the commission percent
+by 0.01 times the total sales to obtain the proper commission,
+or you can go back and first multiply the values in the total sales column
+by 0.01 in one step, and then in a second step
+obtain employee total commission by multiplying the adjusted commission
+percent by the total employee quarterly sales.
+In this lesson, we learned how to accomplish
+some of the most common DataFrame manipulation techniques.
+We started by creating data frames using the numpy randomint function,
+and then converting a Python dictionary into a DataFrame.
+Then we learned how to add new rows and columns to our DataFrame,
+as well as how to access information by index position and label.
+We learned how to set a database index that allows us to easily perform
+downstream data manipulation and easily access information in the DataFrame.
+And we learned to some and multiply columns
+by row in order to calculate total sales and commission payouts.
+Well done.
+[MUSIC PLAYING]

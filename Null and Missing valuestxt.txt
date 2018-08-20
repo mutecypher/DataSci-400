@@ -1,0 +1,42 @@
+[MUSIC PLAYING]
+
+Often when data are missing, a placeholder value is entered.
+The best placeholder value is null.
+In Python, the null is represented by an object called none or nan.
+Often the person who enters the data will use a ridiculous value
+to indicate that the value is actually unknown.
+For instance, a value of minus one, or 99 for the age of a preschooler
+is obviously incorrect.
+One reason for entering such ridiculous values
+is that the data entry system may have required a non-null numeric entry, even
+if the value was unknown.
+In this sense, missing values can be like erroneous input.
+Just like erroneous input, the placeholder values
+need to be removed or replaced prior to analysis.
+When a data scientist speaks of a problem with missing values,
+the data scientist usually means that there
+is a problem in removing or replacing placeholder values.
+Missing numeric values are often represented by a non numeric text.
+Typical examples of missing values are an empty or blank text.
+An empty text is a text with zero characters.
+And a blank is the space character.
+Missing values are also often represented by the texts null, nan,
+and the question mark.
+The texts null, nan, and none should not be
+confused with the actual values, null, none, and nan.
+These texts are like text in a numeric array.
+They are inappropriate for a numeric analysis.
+Missing data is a common problem.
+Data are often missing because somebody forgot to enter the data.
+In other cases, data may be missing because the data never existed.
+An example might be a class that has four exams over the semester.
+Some of the students may have missed one or more exams.
+We note each missing exam by entering a null for the grade.
+When calculating the student's grade, we need to decide what to do.
+After we determine which exams are missing,
+we decide how we process the missing data.
+We could remove the null grade and calculate the average
+from the other three exams.
+We could replace the null grade with a zero and then calculate the average.
+We could replace the null grade with a class average for that exam.
+[MUSIC PLAYING]

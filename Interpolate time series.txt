@@ -1,0 +1,135 @@
+[MUSIC PLAYING]
+
+Building on the work we've already done by setting an index
+and subsetting the data frame, we can now
+ensure that the value column gets assigned the proper data type.
+Since our original spreadsheet contains measurements
+with decimal values, as well as positive and negative numbers,
+we'll use the float type.
+We can use the astype method on the data frame square brackets column name
+to specify which column we want to coerce to a float.
+As an argument, we can also specify any other Python data
+type, such as int or string.
+Then, we assign the output back to the same column name
+so that the change is stored in the current data frame.
+When Python encounters missing values, it automatically assigns them
+as NAN, which stands for Not A Number.
+This is helpful for not throwing errors when creating a data frame,
+but can cause all kinds of difficulty when
+trying to do any calculations on the column downstream.
+Since a value of 0 does not always translate to no value--
+for example, with our temperature readings, a value of 0
+would still mean that we had a temperature reading
+and that that temperature reading was 0--
+so instead of simply dealing with NANs by using pandas' fillna
+method to replace all NANs with 0, we'll have
+to completely remove rows with missing value from our data frame.
+We'll use the dropna method on the data frame
+to remove any rows in our data frame that contain missing values.
+For the axis argument, we'll use 0 to specify
+that we want to drop the entire row.
+If we used 1 for our argument, that would
+specify that we wanted to drop the entire column.
+For the how argument, we'll use any to drop rows
+where any value contains a NAN.
+We can also specify all to indicate that we only want
+to drop a row where all values are NAN.
+When we look at our data frame, we can see that our time stamps were not
+read in at regular intervals, which will make it
+very difficult to compare data points.
+If we tried to resample the data to a different frequency,
+such as one-minute intervals, we'd have data points
+from each attribute thrown into the mix without a label,
+and that would make a giant mess.
+To make things easy, we can use the pandas groupby method
+to group together data points for each different attribute.
+This will allow us to perform calculations across each attribute
+individually so that we can easily up or downsample the data
+and perform calculations on each group, such as finding the mean temperature.
+We'll continue working on our already-parsed data frame
+by calling the groupby method on the pm2_df data frame.
+In the argument to the groupby method, we'll specify the attribute column.
+Since the attribute column contains only strings,
+groupby will gather together all data points for each string,
+giving us a series of data points for each attribute.
+The resulting output of a groupby operation is no longer a data frame,
+but a groupby object.
+You can get a pandas data frame by multiple columns
+by providing a list of column names to the groupby function.
+If we want to look at yearly data for each of our different attributes,
+such as all temperature readings for the year 2010,
+we can do a groupby on our datetimeindex and the attribute column
+by providing the groupby function with a list of these column names.
+Because the attribute column is a string and the index is a datetime object,
+we will be mixing data types.
+So instead of using the square brackets to specify a column name
+for the groupby function, we need to use the dataframe_name.column_name format.
+Here, we create a new object called your attribute group that
+will contain our groupby object composed of each attribute broken down by year.
+We'll call the groupby function on pm2_df data frame
+and provide a list of column names of the argument.
+Now, when we print out the year attribute group,
+we can see how pandas grouped together by attribute and by year.
+Our sample data set consists of raw sensor readings
+that are taken at a regular and approximated time intervals.
+When working with data like this, as is often the case,
+we'll need to change the frequency of our data
+to regular intervals that allow us to make accurate calculations.
+pandas provides a method called resample that allows us
+to group records with downsampling, such as from months to days,
+and to make room for interpolation of missing data points
+when upsampling the frequency, such as from minutes to seconds.
+Let's start by downsampling our original pm2_df data
+frame using the resample method.
+The resample method can take a large range of frequency arguments
+and different offset intervals.
+Choosing the right frequency and offset interval
+can be an entire lesson on its own, so for this lesson
+we'll just keep it simple and choose one-minute intervals.
+We'll use the resample method on our data frame,
+giving resample an argument of 1 minute.
+We can see that, when we downsample the original data frame,
+we lose all of the information from our attribute column.
+This is because the resampling method only works on numerical columns
+and will drop all columns containing a string.
+To keep our attribute information, we can first
+aggregate our data using the groupby method
+and then use the resample method on each group in the groupby object.
+At the end of our resample statement, we need
+to let the function know how we want to aggregate that data together.
+We'll use the mean here, but you can also
+use other aggregation methods such as sum, min, and max.
+We can also use the resample method to upsample
+the frequency of our time series.
+Let's try increasing the frequency of our observations
+to one-second intervals.
+We'll use the same syntax as before by first aggregating
+the information by attribute with the groupby method
+then calling the sample using 1 second as the argument in the resample method.
+While changing the frequency of our data,
+you may have noticed that we end up with a lot of missing data points.
+We can use pandas' interpolate method to fill
+in the values of our missing data points according to a model of our choosing.
+Here, we'll use a linear model to use existing data
+points to estimate the missing values.
+If we call the plot method on our humidity readings
+from our original data frame and compare it
+with a plot of the interpolated data, we can
+see that the distribution is almost identical.
+
+Now, let's interpolate the temperature readings.
+Let's try comparing the distribution of the temperature data upsampled
+to one-second intervals with the distribution of the original data set.
+You can do this by following along with all of the code we've worked through
+in this tutorial.
+For the last step, change the argument for the interpolation method
+to polynomial instead of linear, and pull out and plot the temperature data.
+Are the distributions different?
+In this lesson, we learned the basics of working
+with time series data in pandas, including converting time stamps
+and setting a datetimeindex.
+After learning the basics, we worked through aggregating time series data
+into groups that made it easier to analyze our data,
+and then looked at how to change the frequency of our data
+and interpolate missing data points.
+[MUSIC PLAYING]

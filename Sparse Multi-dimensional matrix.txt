@@ -1,0 +1,197 @@
+[MUSIC PLAYING]
+
+Now we will relate multi-dimensional sparse matrices to tables.
+The purpose of this exercise is based on two premises--
+the first premise is that most data are organized as tables.
+The second premise is that algorithms have
+been designed to interpret data sets as collections
+of multi-dimensional observations.
+In fact, a large part of the data scientist's work
+is to mold their data into tables where each row is an observation
+and each column is a dimension.
+The primary message of this presentation will
+be that most data can be viewed as points in multi-dimensional space
+and that most data sets can be viewed as multi-dimensional sparse matrices.
+This insight is fundamental to data science.
+This presentation is not about how to do something,
+this presentation is about how to think about data in general.
+The purpose of this segment is to convince you
+that most data sets should be thought of as sparse multi-dimensional matrices.
+Most data sets are rectangular, which is another way of saying that most data
+sets are tables, like data frames.
+Here are some terminology that you might want to review.
+Here is a simple sparse matrix of integers.
+It is called the 3 by 4 matrix because it has three rows and four columns.
+The matrix dimensions are labeled y and x.
+Since this matrix has two dimensions, it is called a 2D matrix.
+The matrix could hold 12 integer values but only two elements are occupied.
+We could say that the unoccupied elements contain null values.
+In this exercise, we want to emphasize that the elements are not occupied
+and that these data do not exist.
+Therefore, we will refer to them as unoccupied as opposed to null.
+This 3 by 4 matrix is just one in a series of five equal-sized two
+dimensional matrices.
+Such a series constitutes a three dimensional matrix.
+The third dimension is labeled z.
+Since there are five of the 2D matrices, the three dimensional matrix
+is a 3 by 4 by 5 matrix of integer values.
+We can visualize a three dimensional matrix as a box.
+The floor of this box has the dimensions x and y.
+The height of the box has the new z dimension.
+I like to think of this box as an oven with slots for five racks, where
+each of the rocks represents a matrix.
+Some people call this box a cube, although the more appropriate term
+would be hyperrectangle, because the dimensions do not
+need to be the same size.
+You might want to look up the term hyperrectangle.
+We move each 2D matrix, like an oven rack, into its slot in the 3D matrix.
+Both the left and right hand depictions are the same 3D matrix
+of the integer values.
+The picture on the right uses our understanding of 3D space
+to explain a 3D matrix.
+I would like to reiterate the goal of this presentation.
+The goal of this example is to explain how
+most data sets can be thought of as sparse multi-dimensional matrices.
+So far, we have only described a sparse 3D matrix.
+For the sake of explanations, we will consider this 3D matrix of integers
+as our example of a sparse multi-dimensional matrix.
+The next step is to connect this depiction
+of a sparse multi-dimensional matrix to a table.
+A common task for data scientists is to mold their data
+so that they fit into a table.
+The integers in the 3D matrix can be put into a table
+by creating the column for the integers in a 3D matrix
+in the column for every dimension of the 3D matrix.
+This table has four columns because it represents a 3D matrix,
+and we need one column per dimension and then another column for the matrix
+integers.
+The names of the first columns are the names of the dimensions-- x, y, and z.
+The name of the fourth column is v, which stands for value.
+In general, a table with n columns can represent a sparse matrix
+with n minus 1 dimensions.
+The value 11 isn't the first or lowest 2D matrix.
+That 2D matrix was the matrix that was labeled z equals 1.
+The value 11 is in the second element from the left
+and the first element from the front.
+That means the value 11 is in an element where x is equal to 2
+and y is equal to 1.
+The value 11 is transferred to the v column
+because the v column is for the matrix values.
+In the same row, we enter a 1 into the z column and a 1
+into the y column and a 2 in the x column
+because these numbers specify the location of the matrix element
+that contains the 11.
+We repeat this process for the next value
+and fill in the second row of the table.
+The second table row has the value 7.
+Its element has the coordinates 2, 2, 2.
+Therefore, the second row of the table reads 2, 2, 2, 7.
+We repeat this process for the next value
+and fill in the third row of the table.
+We repeat this process for the rest of the values in the 3D matrix
+and fill in the remaining rows of the table.
+We derive the table on the left hand side
+from the matrix on the right hand side.
+We could have derived a table from any such matrix.
+If the matrix had fewer or more dimensions,
+then our table would have fewer or more columns.
+Furthermore, we can see that the table on the left hand side
+is a representation of the sparse multi-dimensional matrix depicted
+on the right hand side.
+This statement implies that by reversing the process,
+we could derive the sparse multi-dimensional matrix
+from the table.
+We can now see that any table is a representation
+of a sparse multi-dimensional matrix.
+This is the table that represents a 3D matrix of values.
+But we could think of these values as another dimension.
+That is, we could think of these values as just another dimension.
+In this case, the v column would be the fourth dimension.
+This same table could also represent a four dimensional matrix of Booleans
+or a point in four dimensional space.
+We can't use the three dimensional matrix or hyperrectangle
+to represent a four dimensional space.
+We need a four dimensional structure to represent
+the four dimensional data set.
+In order to create a four dimensional structure,
+we need to shrink our three dimensional matrix
+and then introduce a fourth dimension.
+What does it look like to create a fourth dimension?
+We still have the first three dimensions,
+but we draw a new dotted line as a depiction of the fourth dimension
+for a four dimensional matrix.
+The obvious next question is, what constitutes a four dimensional matrix?
+The answer to this question is, a series of equally
+sized 3D matrices constitutes a four dimensional matrix.
+Therefore, we need to place a series of 3D matrices along this new dimension.
+The same 3D matrix shape is replicated along the dotted line.
+We will name this new dimension the same as the fourth column
+of the table, which is v.
+We can introduce discrete levels for v. Since v
+has values ranging from 1 to 11, we can introduce discrete values from 1 to 11.
+We should note that we have only created an empty matrix,
+we haven't placed any values yet.
+Before we enter the values, we need to improve this depiction of a 4D matrix.
+The individual 3D matrices are drawn very small.
+We will need to redraw this depiction in a way that increases
+the size of the individual 3D matrices.
+We can use the area on the screen more effectively
+if we take the liberty of bending the fourth dimension like text
+wrapped around multiple lines.
+The individual 3D matrices are drawn larger
+and the individual elements of the 4D matrix are now visible.
+The dotted line that represents the fourth dimension
+is somewhat distracting.
+We remove the dotted line to see the individual elements better.
+The next step is to introduce the values from the table into the matrix.
+The question is, which value from the table is introduced
+and where is it introduced in the matrix?
+The values are Boolean.
+Each value represents one row of the table.
+You can think of the value as a point in four dimensional space.
+The coordinates of a point or matrix element
+are given by the four values in the table row.
+The four coordinates of the matrix element are the four columns, namely x,
+y, z, and v.
+Previously we use the x, y, and z coordinates
+to specify the locations of the elements.
+Now we use the v dimension too.
+V has values 1, 5, 7, and 11.
+The specified elements will be in the 3D matrices label v equals 1, v equals 5,
+v equals 7, and v equals 11.
+We use the x, y, and z values to place the Boolean within its 3D matrix.
+The default value of all the matrix elements is false.
+In other words, an unoccupied or null element
+will be assigned the value false.
+When dealing with sparse matrices, it is common practice
+to assign the default value to the unoccupied elements.
+The x, y, z, and v values are the indices of the four dimensional matrix
+of Booleans.
+We can consider the x, y, z, and v values as coordinates
+in a four dimensional space.
+The Boolean is much like a point.
+A true means that the point exists.
+
+This picture is an attempt to present Boolean values
+in a four dimensional matrix.
+In other words, this table with four columns
+is a data set of points in four dimensional space.
+So far, this example used integers.
+We can extend these insights to other numeric types and also to categories.
+For instance, one could imagine a dimension
+with various categories instead of integers,
+or we could dummy encode the categorical dimension.
+The conclusion is that a row in a table can
+be thought of as a point in multi-dimensional space
+and that a table represents a sparse multi-dimensional matrix.
+You might ask, why would I want to think of a table
+as a multi-dimensional sparse matrix or think
+of a row as a point in multi-dimensional space?
+The answer to this question is, machine learning algorithms think that way.
+In less anthropomorphic terms, we can say,
+machine learning algorithms are generally
+designed to use tables or table-like data as their primary data structure.
+The algorithms are designed to consider a row in a table
+as a point in multi-dimensional space and a table
+is considered to be a multi-dimensional sparse matrix.
+[MUSIC PLAYING]

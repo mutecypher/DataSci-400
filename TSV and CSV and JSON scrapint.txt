@@ -1,0 +1,100 @@
+
+Scraping data from JSON format is even easier than parsing raw HTML.
+CSV and TSV files are some of the most commonly used formats in data science.
+Scraping CSV and TSV files is very easy thanks to the wonderful pandas package.
+To scrape JSON, we just use a modified version of the simple webscraping
+formula we looked at earlier.
+First, we'll start by importing the libraries that we need.
+Here, we can import the request library from urllib,
+and that's built into Python.
+And we're going to give it an alias of ur,
+just to make it easier for typing downstream.
+And of course, we'll need the JSON module
+since we're dealing with JSON format.
+Next, we're going to assign a URL as a string.
+And let's just go ahead and take a look at the data structure
+that we're going to be working with here.
+You always want to make sure and take a look at the web page
+and the format of the data on the web page
+that you'll be scraping to make sure you're using the right approach.
+So let's check this URL and make sure that it is, indeed, in JSON format.
+And you can see here that this web page is actually in traditional JSON format,
+where we have values and attributes as key value pairs.
+What we can do now is we're going to nest the URL request
+inside of the json.load function.
+So here, we're using the URL we specified as a variable here.
+And then we're calling from the URL request library the URL open function,
+and we're nesting that inside the JSON call.
+So what this is going to do is pull that information into Python automatically
+and convert it from JSON format.
+So we're doing all of this in one line, and that will give us back
+a Python dictionary.
+Let's take a look at what we've got.
+And over here, you can see the results are obtained in the Python data
+dictionary format.
+If you need help parsing a Python dictionary
+that we obtain from JSON format, go ahead and watch the JSON video.
+You get a lot more information in there about how to pull pieces out
+of this particular format.
+CSV and TSV files are some of the most commonly used formats in data science.
+Scraping CSV and TSV files is very easy thanks to the wonderful pandas package.
+For this scrape, we're going to use the pandas package to parse the information
+and automatically turn it into a pandas data frame.
+We're going to import the pandas package and give it an alias of pd.
+That just makes it a little bit easier to type downstream.
+We'll take a look at one of URLs that you've been
+working with in previous tutorials.
+And let's go ahead and take a look at that web site
+so we can view that it is indeed in CSV format.
+And here we can see we've got a list, and it's all comma separated.
+There's no headers on this file.
+And this is as easy as using the pandas read.csv function
+to pull down the data from the URL.
+We're going to give it the argument header
+equals none, because there were no column names contained
+in that file we just looked at.
+Let's go ahead and take a look at what we pulled down from this website.
+And we can see here that it turned it into a pandas data frame.
+It's now tab separated.
+And each comma separated item now becomes its own column.
+The next thing we can do here is add some meaningful column names.
+So that will make it easier for us to work with this data downstream.
+So here, we'll make a list of names, comma separated,
+one name for each column.
+And then we'll go ahead and apply those column names to the data frame.
+So we give it the data frame name and then the .columns function.
+And we're saying what we want the columns
+to equal to is this list of names that we've created up here.
+Let's go ahead and see how that changes our data frame.
+
+Now we can see that each column has one of the names that we gave it.
+
+Now it's your turn to try webscraping.
+On your own, see if you can scrape the CSV data from the mammographic masses
+database and convert it into a pandas data frame.
+Add meaningful column headers.
+You'll frequently be expected to pull down information
+like this from the internet, so it's important to give
+each column meaningful labels that tell you what type of data
+the column contains.
+You can usually find this information somewhere on the same website
+you got the data from.
+The solution for this problem will be on the next slide.
+
+Just like in our previous example, we started by importing the pandas module
+and giving an easy to type alias of pd.
+We assign the URL to a string variable named url.
+Now we can use the pandas' read_csv function
+to pull that data down from the web into a data frame.
+Since the original file doesn't contain headers,
+we use the argument header equals none so that Python doesn't automatically
+use the first row as a header.
+Now we can add our own column headers by feeding a list to the data frame
+.column attribute.
+In this lesson, we learned the basic function for webscraping.
+We went over some basic HTML syntax so that you
+are able to find information when you need to.
+And then we applied the basic webscraping function
+to HTML, JSON, and CSV data formats.
+That should prepare you for some of the most common data formats
+you'll need to work with for scraping data off the internet.

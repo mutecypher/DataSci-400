@@ -1,0 +1,113 @@
+[MUSIC PLAYING]
+
+Most business intelligence, engineering, and scientific processes
+have a cyclical nature that allows improvement
+for every iteration of the cycle.
+We can also depict the data science process as a cycle.
+If you look on the web, you can find many data science cycles,
+and they're all quite similar to the one shown here.
+This particular presentation is designed to highlight the data scientist's
+tasks.
+The cycle can be summarized as follows.
+The appropriate data for a task must be identified and prepared for modeling.
+The model is created and used to create insights.
+Based on the model's insights, the cycle is repeated with improved steps.
+This data science cycle has analogies to the scientific method
+and the cross-industry standard process for data mining.
+The Cross-Industry Standard Process for Data Mining, better known as CRISP-DM,
+is the industry standard for the business intelligence cycle.
+The data scientist only works on some parts of the cycle,
+but should oversee all of the cycle to make sure
+that the modeling part is supported by the data
+and the model insights are interpreted correctly.
+All business intelligence processes require data.
+And the data science cycle starts here.
+Getting data used to be the bottleneck in most endeavors,
+and data collection was the main task.
+These days, data is plentiful and data scientists are often not even consulted
+for data collection.
+Typically, the data already exist, and the data scientist just
+needs to determine if the available data support a useful model.
+There is an important exception to what is presented here.
+In Design Of Experiment, or DOE, data collection
+is still directed and closely monitored by data scientists.
+DOE includes A/B testing and other data creation practices.
+ETL stands for Extract, Transform, and Load.
+ETL is a business intelligence process that
+encompasses the extraction of the data from one or more databases,
+transforms the data for analytical processing,
+and loads the data into a warehouse specific for staging analytical data.
+The T in ETL stands for Transform.
+Depending on one's definition, this transformation
+may subsume the next step, called prepare data for the model.
+But ETL is part of traditional business intelligence,
+and ETL developers do not prepare data for modeling.
+Instead, ETL developers focus on transformations,
+like changing data types, correcting time zones, and joining tables.
+Prepare data for the model is given its own step
+to highlight that a data scientist must prepare data
+beyond what is typically done in ETL.
+Data scientists must prepare data for the machine learning
+algorithm that will create the model.
+Preparation steps by a data scientist may include binning, decoding,
+category consolidation, one hot encoding, normalization,
+outlier removal, and data imputation.
+As mentioned earlier, these preparation steps
+may be merged with the data preparation steps of a BI developer.
+Data movement and preparation is time-consuming.
+Data scientists and everyone else waits and spends
+the most amount of time on the ETL process.
+Data scientists spend the most amount of work
+in the prepare data for the model step.
+Generally, data scientists and their business managers
+claim that 2/3 of the cycle time is spent on these two processes alone.
+In my experience, these two processes take
+85% of the data science cycle time, and about 2/3 of the data scientist's work.
+
+These are the data scientist's hands-on tasks.
+The data science skill differentiates itself
+from the BI developer in that BI scientists create
+mathematical and statistical models.
+The data scientist has to prepare data for modeling,
+select and adjust the algorithms for modeling,
+and provide guidance on how to apply the model to new data
+and interpret the results.
+Data scientists build predictive models.
+The skills required to build predictive models
+are primarily a mix of statistics, software engineering,
+and domain expertise.
+A successful data scientist need not be a great statistician or software
+engineer, but must be comfortable in both disciplines.
+The data scientist usually does not have domain expertise,
+which is why a successful data scientist must be able to communicate well
+with domain experts.
+This mix of skills is still unusual, which is
+why data scientists are hard to find.
+Data scientists do not spend much time building predictive models.
+But building models sets data scientists apart from other BI developers.
+IBM just predicted that the demand for data scientists
+will increase by more than 28% in the next 3 years.
+Even now, data science jobs are hard to fill.
+
+Once the model is finished, it is applied to new data
+to see how it predicts on new data.
+Also, some models allow the data scientist to gain insight into the data
+even without applying the model to new data.
+This particular task is most interesting for data scientists.
+Applying the model and deriving insights does not mean operationalizing.
+Specifically, the insights have not been delivered to the end user.
+The model results are presented and used.
+The end user is not a data scientist.
+In my experience, many useful models end up not being used.
+The data scientists show off their work and explain
+how the results can be used.
+The end users are often impressed with the model results.
+The problem is presenting the insight or prediction
+to the right person at the right time.
+This has also been called the last mile of predictive analytics.
+Unless this last step is achieved, we cannot make use of the model
+and the model will become shelfware.
+If the insights are presented correctly, the beneficiary of the model's results
+will certainly have ideas on how the model can be improved,
+and the cycle can start over again.
+[MUSIC PLAYING]

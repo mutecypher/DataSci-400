@@ -1,0 +1,95 @@
+
+The example array represents the ages of 12 children in a daycare for one-
+to four-year-old children.
+In three cases, the ages were not recorded,
+and placeholder values were entered into the database.
+The placeholder values will cause problems with our analysis,
+and we want to remove the placeholder values.
+We use the array function in the numpy package to create an array.
+Our analysis is simple.
+We want to know how many children are above the age of four
+and should no longer be in this daycare.
+We can write a line of code that sums up all the true cases
+for x more than four.
+The code is simply sum of x greater than four.
+Unfortunately, that code will not work because x
+contains values that are not numbers.
+
+The result is an error message, specifically, type error.
+
+The problem is not with the code sum x greater than four.
+Rather, the problem is that the values in x
+are considered text, and not numbers.
+The values are considered text because the third and ninth elements
+in x are text.
+
+If we use the type function on x, we determine that x is a numpy array.
+
+Although it is informative that x is a numpy array,
+we still do not know the data type of the elements in the numpy array.
+To determine the data type of the elements in a numpy array,
+we can use the numpy array attribute called the dtype.name.
+Name
+In the interactive console, we see that the response contains str.
+The str means that the array elements are thought of as strings.
+Strings are another word for text.
+We need to get rid of these strings if we want to do our analysis.
+We can create a Boolean expression that has a true whenever x looks
+like a number, but false otherwise.
+We can look back at the assignment that creates the array
+and find out which elements look like numbers
+and which elements look like strings.
+The two elements that do not look like numbers
+are a space and a question mark.
+
+Besides, they have quotes around them.
+The quotes are a clear sign that these elements are strings.
+We can create a Boolean array for numbers that we will call FlagGood.
+The value of the Boolean array will be true
+whenever the values are not the space character or the question mark.
+
+The Boolean expression on the right hand side of the array
+checks whether each element of x is not a question mark
+and whether each element of x is not a space.
+These two Boolean expressions are combined with an element-wise AND
+operator.
+The element-wise AND operator is an ampersand.
+Alternately, we can specify that we want only the elements that are numeric.
+In this Boolean expression, we use the isdigit method
+on all the elements in the array.
+The isdigit method works on strings and returns a true
+if the string is composed of numeric digits.
+Since an array of strings has many strings,
+we need a way to apply the isdigit method
+to each individual string in the array.
+The right hand side of the assignment reads element isdigit for element in x,
+and can be translated as, for every element
+in x, test whether that element is made of digits.
+
+We can remove the question mark and space
+by indexing the array with the Boolean array
+that specifies the location of the numbers.
+The values in x look good, except that they have quotes around them.
+
+Even though we remove the space character and the question mark,
+our analysis will not work because the remaining values that look like numbers
+are not numbers.
+We still get a type error.
+The elements in x are the text representation of the numbers.
+In other words, although the values look like numbers, they are strings,
+and they do not have a numeric value.
+We need to convert these strings into numeric values.
+We could convert these into either integers or floats.
+On the left hand side of the assignment is x.
+That means we will overwrite our string version
+of x with a numeric version of x.
+The numeric version is created by casting the values in x into numbers.
+
+Specifically, we cast the elements of x either into integers or into floats.
+On the right hand side of the assignment, we use the astype method.
+
+We can use either int or float as the argument to the astype method.
+The result of the tally of children over the age of four is two.
+The two values in x that are larger than four are the five and the 99.
+Obviously, the 99 was another missing or placeholder value
+that should be removed.

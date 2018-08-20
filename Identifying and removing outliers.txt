@@ -1,0 +1,100 @@
+[MUSIC PLAYING]
+
+Data often have erroneous inputs.
+These erroneous inputs will cause problems during analysis.
+Fortunately, we can often identify these erroneous inputs and get rid of them.
+We will need the numpy library for this task,
+which is why our first statement is import numpy as np.
+Let's consider a sample data set that consists of 10 values.
+Each value represents the age of a preschooler in daycare.
+An array is created on the right-hand side of the assignment,
+using the numpy array function.
+The array is assigned to x.
+This array is very small, which allows us to easily see
+that the fourth value is 99 and that it is an outlier, a number significantly
+far from the other values.
+The simplicity of this example allows us to see the steps of the process
+that we will use to remove outliers.
+If we had a large array, then we would not
+be able to easily recognize the outliers just by looking at the array numbers.
+Often the definition of an outlier is ambiguous.
+A common way to determine outliers is to identify
+those values that are more than two standard deviations from the mean.
+If the values follow a Gaussian distribution,
+then we could expect 95% of these values to be within two standard deviations
+of that mean.
+Data scientists often use this method, even when
+there is no evidence that the data set has a Gaussian distribution.
+You might think of this practice as one of the things that
+contributes to data scientists being seen more
+as hackers rather than statisticians.
+In our case, we actually know that the distribution is not Gaussian.
+Nevertheless, we will still use this method.
+We need to determine the mean and standard deviation
+of our data set x to determine at what values the outliers begin.
+
+On the right-hand side of the assignment for the high limit,
+the mean of the dataset is added to two standard deviations of the dataset.
+On the right-hand side of the assignment for the low limit,
+the mean is subtracted from two standard deviations.
+
+We can see the values of these limits in the variable explorer,
+or just by writing the values into a console in interactive mode.
+
+In this dataset, we can see that the low limit will not
+have an impact because there are no outliers whose number is too low.
+On the other hand, we can see that the high limit is lower than 99.
+Therefore, 99 is an outlier in the dataset.
+We will create a Boolean array, often called
+a flag, that indicates whether a value is within these limits.
+This Boolean array must have the same length as the data array.
+Whenever the Boolean array contains a false, the value is an outlier.
+This Boolean array, named FlagGood, is on the left-hand side
+of the assignment.
+On the right-hand side of the assignment is a Boolean expression
+that states that the values in dataset x are at least as large as the low limit.
+And that those values are no larger than the high limit.
+
+The element by element comparison of x to these limits
+is called an element-wise comparison.
+The operator that combines these comparisons is the single ampersand.
+This combination is called the element-wise logical AND.
+For every value of dataset x where both these conditions are true,
+FlagGood will contain a true.
+Using either the variable or Explorer or the interactive mode,
+we can view the contents of the Boolean array.
+
+FlagGood contains only one false.
+The false is in the fourth position of FlagGood,
+just like the 99 is in the fourth position of the dataset array x.
+In Python and some other languages, an array
+like x can be indexed by a Boolean array, like FlagGood.
+As usual, indexing occurs in the square brackets.
+In other words, we put a Boolean array like FlagGood
+in the square brackets of the dataset array x.
+
+As mentioned before, the Boolean array must have
+the same length as the dataset array.
+We can use the interactive console to view the results.
+
+The values of the dataset x are shown only if the corresponding value
+in FlagGood is true.
+The effect is that the outlier, 99, is not shown.
+So far, using FlagGood as an indexer to x has not modified the dataset x.
+We can verify in the variable Explorer or the interactive console
+that the dataset x still contains the outlier 99.
+
+To remove the outlier from dataset x, we need an assignment
+to overwrite the original 10 values in the dataset x,
+with only the 9 values that are considered good by the Boolean array.
+On the right-hand side of the assignment is the array of the dataset
+x, indexed with the Boolean array, FlagGood.
+On the left-hand side of the assignment is x.
+The x on the left-hand side of the assignment
+represents a new version of the dataset.
+
+If we check the variable Explorer or the interactive console,
+then we see that the new dataset x does not contain the outlier.
+
+The dataset x has been reduced to nine values.
+[MUSIC PLAYING]

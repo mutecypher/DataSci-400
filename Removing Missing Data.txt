@@ -1,0 +1,86 @@
+
+Missing values are a common problem in data science.
+Given a missing value, we have three options.
+The first option is to do nothing.
+For analyses that tolerate missing data, this option may be the best.
+On the other hand, many analyses demand that no data are missing.
+The second option is to replace a missing value.
+The advantage of this option is that data are not lost.
+The disadvantage of replacing missing values
+is that the replacement value is based on a guess.
+The third option is to remove the missing value.
+The benefit of this option is that there is no guesswork.
+The disadvantage of removing missing values
+is that we could lose a lot of data.
+We will focus on removing missing data.
+One might ask, how do you remove a value that is already missing?
+The answer is, we can remove the row or column that contains the missing value.
+Our strategy is to replace all missing values with NaN
+and then to remove either all rows that have
+a NaN or all columns that have a NaN.
+We know that we will need the pandas package.
+We download the data and assign the data as a data frame
+to an object called Mamm.
+Mamm is short for mammographic masses.
+Each row describes a patient and her breast tumor.
+Each column describes an attribute of the patient or her tumor.
+To get an overview of our data frame, we view the first few rows
+and check the size of the data frame.
+
+This data frame uses question marks as placeholders for missing values.
+We see two question marks in the first five rows.
+We suspect that the data frame might contain more question marks.
+We want to track how much data we lose through row or column removal.
+To that end, we should note that we start out
+with 961 rows and six columns.
+
+We use pandas' replace method to replace question marks with NaNs.
+On the right-hand side of the assignment,
+we specify that we want to replace the question mark with NaN.
+To get an overview of our changes, we use the first few rows
+and check the size of the data frame.
+
+A review of the first few rows shows us that the question marks
+were replaced with NaN.
+So far we still have 961 rows and six columns.
+We can get a count of NaNs for each column by using the isnull method
+and then summing up the results with the sum method.
+
+The reason we replaced the question marks with NaNs
+is to make use of pandas' dropna method, or dropna, method.
+With the dropna method, we can remove every row or every column
+that contains one or more NaN.
+We can specify either row removal or column removal.
+If we want to remove rows, then we must set the axis argument
+of the dropna method to zero.
+
+On the left-hand side of the assignment, we
+have a new object called Mamm fewer rows.
+That name reminds us that this new version of the data
+has had rows removed.
+We should check on the first few rows and the size of the new data frame.
+
+The new data frame indices have gaps where rows had one or more NaNs.
+
+Also, note that the new data frame has only 830 rows.
+
+The original mandated frame contains 961 rows.
+This method removed 131 rows, which is 14% of the data.
+As an alternative to row removal, let's try column removal.
+If we want to remove columns, then we must set the axis argument
+of the dropna method to one.
+On the left-hand side of the assignment, we
+have a new object called Maam_FewerCols.
+The name reminds us that this version of the data frame has had columns removed.
+We should check the first few rows and the size of the new data frame.
+
+After removing columns with NaNs, the indices do not have gaps,
+and the new data frame has all 961 rows.
+
+On the other hand, only one column remained.
+This method removed 83% of the data.
+In this case, it seems that we will keep more data if we use the row removal
+option instead of column removal.
+As a third alternative, we could have also removed
+only the columns that have the most NaNs and then removed
+the rows that have the remaining NaNs.

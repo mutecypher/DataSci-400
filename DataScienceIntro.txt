@@ -1,0 +1,60 @@
+[MUSIC PLAYING]
+
+What is data science?
+The name data science was coined by two self-proclaimed data scientists,
+but at the time in 2008, these data scientists,
+DJ Patel and Jeff Hammerbacher, failed to provide
+a definition of data science.
+Some say that data science is the art of gaining insights from data.
+But that is the same definition as for business intelligence.
+It seems that data science is business intelligence.
+Yet there are clear distinctions between data scientists and typical BI
+developers.
+One difference between data scientists and typical BI developers
+is that data transformations and analysis in data science
+require more mathematical and statistical processing.
+Yet we know that using math in deriving insights is an age-old process.
+To make my point, I can quote Sun Tzu, who wrote The Art of War.
+He wrote it 2,500 years ago.
+And he wrote, "First, measure.
+Second, estimate quantity.
+Third, calculate.
+Fourth, balance chances.
+Fifth, succeed."
+Sun Tzu's steps are easily mapped to modern-day equivalents
+in business intelligence and data science.
+So far I've only explained the context in which data science is poorly defined
+and a millennium-old practice.
+You might conclude that data science is just
+the age-old practice of BI development with an emphasis
+on quantitative reasoning.
+On the other hand, it seems that we know data science when we see it.
+And data science is more than just BI.
+Also, there seems to be something new about data science.
+Otherwise, why would the Harvard Business Review
+proclaim that data scientist is the sexiest job of the 21st century,
+and why would Glassdoor.com list data scientists as the best
+job in America two years in a row?
+Given the situation, we pose two questions.
+The first question is, what is data science?
+The second question is, why is data science new?
+My answer to the first question is that data science is the generalization
+of the scientific method.
+Given that the scientific method has been around for millennia
+and has been formalized for nearly a century,
+how can its generalization be new?
+The generalization as a concept is not new,
+but the widespread practice of the scientific method outside
+of the traditional sciences is new.
+Data science is a new discipline because of two new developments
+that enable the generalization of the scientific method.
+The first development is the abundance of data outside
+of traditional sciences.
+The second development is a tool set that
+allows us to investigate these data.
+For a deeper answer to the question of, what is data science?
+We can decompose the term data science into its two component words, namely,
+data and science.
+And we ask, two more questions, namely, what is the scientific method?
+And what is the nature of data?
+[MUSIC PLAYING]

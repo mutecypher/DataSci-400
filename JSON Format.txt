@@ -1,0 +1,124 @@
+[MUSIC PLAYING]
+
+Hello, everyone.
+In this video are going to learn about a very popular data storage format
+called JSON.
+We'll get an introduction to the basic syntax and some hands
+on practice converting objects between JSON and Python formats.
+And reading in and saving to files.
+If you want to learn even more about JSON,
+check out the video web scraping with JSON and Python
+to learn how to scrape and parse data from a website using
+Python, rest APIs, and JSON format.
+So what is JSON?
+JSON, which is short for JavaScropt Object Notation
+is a text based structure for storing data.
+Over the last several years, JSON has become one of the most popular methods
+for storing data due to its human readable formatting and language
+independent accessibility.
+JSON is widely used in many disciplines such as web development, internet
+of things, and hard science fields.
+Because it is such a popular format, it's
+a good idea to become familiar with how to parse it.
+When is JSON used to store information?
+Not only is JSON the standard format for transmitting data between web servers
+and applications, it's also the standard format
+for sharing information via REST APIs that allow you to pull information off
+of a website.
+In addition to JSON's widespread use for web data,
+it's also a great data type to use when you're
+dealing with databases and tables that are composed
+of nested complex data or key value pair information,
+such as you learned about in the lesson on EAV data structures.
+JSON sun is built on two main data structures, a JSON object, which
+can be mapped to a Python dictionary and a JSON array, which
+is very similar to a Python list.
+Data types in JSON are very similar to the data types available in Python.
+Integers are a numeric data type that are
+used to represent doubles and floats.
+Strings are the same as strings in any other language, but unlike in Python,
+they should always be surrounded by double quotes.
+Booleans are true false values.
+And there is a null value, which, is comparable to none in Python.
+Let's take a deeper look at the two main storage structures.
+JSON objects are mappable to Python dictionaries,
+which makes converting between the two data types very easy.
+Each JSON object typically represents an unordered collection
+of values that are related to one key, such as attributes
+related to a customer's record or readouts attributed to a thermostat.
+Just like a Python dictionary, JSON objects are composed of key value pairs
+with each value separated by a comma.
+You can easily recognize JSON objects because they begin and end
+with curly brackets.
+Here's a simple example.
+
+This JSON object begins and ends with curly brackets.
+Inside the curly brackets we can see a key, customer,
+that represents a custom objects along with a nested key value
+pair that contains the attributes related to each customer entry.
+JSON objects can and do get more complicated
+as we can see in the following nested JSON object.
+JSON arrays are just like Python lists, an ordered list of values,
+separated by commas, that begin and end with a square bracket.
+The nice thing about lists and arrays is that the values inside
+are accessible by index, which makes them a great data
+type to use when you need to pull out information such as nested web site
+data.
+Here we can see a JSON object denoted by the curly brackets that contains
+an array of values related to siblings.
+Just like a Python list, it begins and ends with square brackets.
+You can pull out elements of JSON objects and arrays
+by using the same key and index methods you are already used to in Python.
+JSON objects can be accessed using key names and array objects can
+be accessed by a zero based index.
+Nested elements can be accessed using a combination of these methods.
+Open up Spider and follow along with me to try out accessor methods in Python.
+You might frequently find it useful to pull out information
+from a JSON object.
+This is especially useful when scraping website data.
+Here's a simple script for accessing elements inside of JSON objects
+and arrays.
+Try to work through this example with me so that you
+can see for yourself how this works.
+First, we'll create a JSON object that contains key value pairs for name, age,
+siblings, which should contain JSON array of sibling names
+as you can see here, Anna, Peter, Lowell, and then a list of cars
+nested under the cars attribute.
+To access a top level attribute by its key,
+we can use the same syntax that we use for accessing Python dictionary items.
+The format is object name and then in square brackets, the key name.
+So to access the name Steven, we would do the following, print JSON
+obj and the name.
+To access an element inside the sibling's array, we can use the key
+and an index number here let's grab out the name Peter we would use the index
+one since it's the second in the list.
+We can combine these methods to drill down to nested attributes.
+Here let's try pulling out the Toyota Tercel.
+
+IPhones JSON module comes with convenience functions
+that do all the heavy lifting required to convert between Python and JSON data
+structures.
+When converting between data types, objects
+are loaded into Python from JSON string format using the loads method.
+In the other direction, when you are dumping data from Python into JSON,
+use the dumps method.
+
+Omitting from S the loads and dumps functions
+allows you to write your objects to a file.
+
+Let's try out the loads function to load JSON data into a Python
+as a dictionary.
+Here we are importing the JSON module.
+Then we use single quotes around JSON object to simulate the key value pair
+structure of JSON data.
+We can tell it's a JSON object because it's surrounded by curly brackets.
+Now we use the JSON dot loads method to convert the data from JSON
+to a Python dictionary.
+Do you remember why we have to type JSON dot before we call the loads function?
+That's because we are importing this method from the JSON module.
+This method isn't a Python built in method
+so we have to tell Python what module this function can be found in.
+And now we can use the name key to access the values inside.
+We'll take a little break here.
+I recommend giving this a try so that you
+make sure you understand how it works.

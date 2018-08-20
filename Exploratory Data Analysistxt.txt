@@ -1,0 +1,158 @@
+[MUSIC PLAYING]
+
+A data scientist must get an overview of the data
+before the data can be used to produce insights.
+The process of this overview is called Exploratory Data Analysis, or EDA.
+Usually, some data preparation is necessary to explore the data,
+because the data will have some aspects that prevent exploration.
+Given that we have a dataset as a data frame,
+we want to explore the data frame.
+The simplest type of data exploration is a cursory view
+of the data using the head function.
+From the results of the head method, we can see from the shown values
+that the data frame has seven columns.
+Furthermore, it seems that two columns--
+namely doors and persons--
+are numeric, and the other five columns are for string values.
+The most basic summary statistic for a dataset
+is its size in rows and columns.
+Pandas has an attribute called shape that provides the number of rows
+and the number of columns.
+From the shape attribute, we can find that the cars data
+frame has 1,728 rows and seven columns.
+We can also get this information from the variable explorer.
+The variable explorer is part of the Spyder ID
+and is found in a tab in the upper right hand corner of the Spyder default
+layout.
+
+The most common way to get an understanding
+of the distribution in a numeric column is by viewing a histogram.
+We will need a plotting facility, like matplotlib, to create a histogram.
+We can write import matplotlib.pyplot as plt
+to make the histogram function in matplotlib available to us.
+We can histogram doors.
+We use plt.hist as our histogram method and apply it
+to the doors column of cars.
+
+We specify the doors column using loc.
+Our result may be unexpected.
+Instead of a histogram, we receive an error message from Python.
+The error message says, type error.
+It seems that not all the values in this column are numbers.
+We can use the method called unique to list the different values contained
+in the doors column.
+We specify the doors column using loc and apply the method called unique.
+
+We find that there are four different values in the doors column.
+The four values are 2, 3, 4, and 5more.
+5more is not a number but rather a string.
+For that reason, the histogram method did not work on the column.
+Printing out values in this manner is usually only useful
+when the data have few different values.
+If each of the 1,728 values in the column were different,
+then we could be overwhelmed.
+Given that we now know that doors is not a numeric column,
+we might want to check the types of the other columns.
+We can use the dtypes attribute to see the types of all the columns in cars.
+For five of the columns, we expect the type to be object or string,
+but we would have expected that the types for doors and persons
+is some kind of numeric type, like int64.
+We see that both doors and persons are columns of object or strings.
+For the doors column, our solution is to replace the string 5more
+with a number, namely 5.
+You might ask, why replace 5more more with 5?
+Obviously, 5more means five or more, not just five.
+Given that we want to analyze this column using numeric methods,
+we must make an adjustment to the column,
+which is not mathematically correct.
+The process to replace 5more with 5 starts
+with identifying all the locations within doors where 5more occurs.
+To that end, we create a list of Booleans
+that has the same length as the column.
+The values are True wherever doors had the value 5more.
+Otherwise, the values are False.
+We can call this list FiveMore.
+And it will be on the left hand side of the assignment.
+On the right hand side of the assignment,
+we have a Boolean expression that compares the doors
+column with the string 5more.
+
+The doors column is specified using loc.
+The comparison operator is the well-known double equal sign.
+Using the method of Boolean indexing, we can replace every occurrence of 5more
+with 5.
+
+When we specify the doors column using the loc method,
+we select only the rows that contain 5more.
+The Boolean list that we called FiveMore is used to specify these rows.
+On the right hand side of the assignment, we use the number 5.
+Again, we will use the method unique, and that
+will list the different values contained in the doors column.
+
+Now, all the values look like integers, although some have quotes around them.
+When we attempt to use the plt.hist function on the doors column,
+we find that we still have the type error.
+Although all the values look like integers,
+the column is still of type object or string and cannot be used by the hist
+function.
+What looks like numbers 2, 3, and 4 are actually the strings 2, 3, and 4.
+They are not numbers.
+To turn the strings 2, 3, and 4 into numbers,
+we need to cast the doors column into a numeric column.
+For instance, this process will transform the character 2
+into a number 2.
+We can use the astype method to cast the values to integers.
+For this cast, the argument to the astype method is int.
+
+Since we want to replace the existing doors column with the integer version,
+we need to specify the doors column on the left hand side of the assignment.
+The right hand side of the assignment also has the doors column.
+But in addition, we apply the astype method.
+Now, when we ask for the unique values in the cars data frame,
+we see that none of the listed numbers have quotes around them.
+
+None of them have quotes around them, because the values are genuine numbers.
+Finally, the histogram function works.
+
+It is interesting to note that the number of doors
+is equally distributed among the cars represented
+by the rows of the data frame.
+A distribution where the occurrences of differing values are the same
+is called a flat distribution.
+Earlier, we noted that the persons column is also not numeric.
+We can repeat the process on the persons column.
+Specifically, we use the unique method to identify non-numeric values.
+
+And we find that there is a value called more.
+
+Then we replace every occurrence of the value more with the value 6.
+
+Then we cast the persons column to type integer.
+
+And then we can make another histogram.
+
+Again, we see that the distribution is flat.
+We can check the types of our columns using the dtypes attribute.
+
+We find that both the doors and the persons columns are of type integer.
+The remaining columns are category columns that have the string data type.
+Earlier, we saw that we cannot use the hist function on category data
+to determine the distribution of values.
+Instead, we can use a bar chart to list the counts of the various values found
+in a column of categories.
+The result will be a plot that is somewhat like a histogram, in that we
+can see the distribution of values.
+We select all the rows of a column using loc.
+And we apply the method value_counts to the counts
+of the various different values in the column.
+Then we represent these values as bar heights in a bar plot.
+The bar plot is created by the method plot,
+where we set the kind argument to bar.
+
+Again, we see that the distribution is flat.
+Now that we have seen three distributions,
+we can make some conclusions about these data.
+My conclusion is that these data were created to produce flat distributions,
+possibly to test algorithms.
+In other words, these data may not have been based on observations.
+[MUSIC PLAYING]

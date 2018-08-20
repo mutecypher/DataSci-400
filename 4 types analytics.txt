@@ -1,0 +1,44 @@
+[MUSIC PLAYING]
+
+- Business intelligence is the process of deriving insights from data.
+As data scientists, we use analytical techniques to derive insight.
+Many sources divide analytics into four types;
+descriptive, diagnostic, predictive, and prescriptive.
+As the arrows indicate, there is an order
+to these types of business intelligence.
+The order implies that those on the left must
+be completed before those to the right can be accomplished.
+The order also relates the time point to which an analysis refers.
+The descriptive and diagnostic analyses refer
+to events that occurred in the past.
+The predictive and prescriptive analyses refer to events
+that will occur in the future.
+The four types of analytics can also be described by the kinds of questions
+that they address.
+The questions in order are; what happened, why did it happen,
+what will happen, and what should we do?
+How does something happen is not one of the questions.
+How implies causation, and much of data science
+avoids causation and the concept of a data model.
+Instead, a model can be used for predictions,
+but the model is based on correlation and not causation.
+Descriptive analytics, are traditional business intelligence.
+Descriptive analytics includes graphing dashboards, KPIs,
+and summary statistics.
+Diagnostic analytics is traditional data mining
+by slicing and dicing of data cubes, drill down,
+and correlation among variables.
+Data scientists focus on predictive models
+that allow us to answer questions like, what
+is the probability that something will happen,
+or how much will something cost?
+These techniques require machine learning algorithms.
+Most who are interested in learning data science want to learn these skills.
+Prescriptive analytics uses recommender engines, model coefficients,
+and 'what if' analyses, like partial dependency functions, to ask,
+what action should be taken given a prediction.
+More sophisticated models can be trained to classify
+what action has the desired outcome.
+This is the data science of the future.
+
+[MUSIC PLAYING]

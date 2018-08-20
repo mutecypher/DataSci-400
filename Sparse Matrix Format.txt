@@ -1,0 +1,89 @@
+[MUSIC PLAYING]
+
+The sparse 2d matrix format is a format for storing sparse 2D matrices.
+And data scientists may choose to use this format for processing data
+based on the size and complexity of a matrix.
+A 2D matrix is a rectangular data structure with rows and columns.
+Each matrix element is uniquely identified by a row and column.
+Each row and column has an index.
+In math ad older computer languages, like Fortran, R, and MATLAB,
+the indices are one based.
+In Python and newer computer languages, the indices are typically zero based.
+A matrix has many similarities with a data frame
+and a table in a relational database, but at least
+one very important difference.
+In a data framework table, the data types may change from one column
+to another.
+In a matrix, all elements have the same data type.
+Here is Python code to generate a random 2D matrix
+with five rows and seven columns.
+The result of the code is a random matrix.
+As expected, it is a 5 by 7 matrix, and the data type
+is the same for every element in the matrix.
+In this matrix, all of the matrix elements have an integer value.
+None of the elements have a null or a missing value.
+When most of the matrix elements are not null, then the matrix is called dense.
+The matrix rows are indexed 1 through 5.
+The matrix columns are indexed 1 through 7.
+The R and C prefixes to the indices are not standard.
+These R and C prefixes are only used in this example
+to highlight the fact that they are indices.
+The left-hand matrix is also a 5 by 7 matrix.
+In the left-hand matrix, 31 elements contain a null and only four elements
+contain non-null values.
+When almost all of the elements are null, then the matrix is called sparse.
+The traditional matrix layout is wasteful for a sparse matrix,
+because most of the elements are null.
+Null elements can be interpreted in different ways.
+A null element in an element may mean that the value for that element
+is missing, but that there exists a value that
+could be entered if we knew the value.
+Or a null value can mean that there does not exist a value for this element.
+Finally, a null value can represent a default value.
+Typically, this default value should have little impact
+on the matrix operations, like a 0 in matrix additions.
+For instance, the default value for elements in MATLAB is 0.
+An efficient representation would only reference non-null values,
+like the values that are circled.
+Any element that is not referenced is assumed to have a null value.
+The non-null values can be represented in a sparse matrix format.
+There exists a variety of sparse matrix formats.
+On the right-hand side of the screen is a structure
+for a sparse matrix format called the coordinate format.
+The coordinate format is also referred to by the first three letters
+in the word coordinate, namely COO.
+The coordinate format has three arrays.
+These arrays can be organized as columns in a table as shown here.
+To avoid confusion, we will call these three columns arrays.
+The first array is for the row indices of the non-null elements
+in the sparse matrix.
+The second array is for the column indices of the non-null element
+in the sparse matrix.
+The third array is for the values of the non-null elements in the sparse matrix.
+For instance, the value 8 from the matrix
+is transferred to the value array in the coordinate format.
+Then the column index for the same element
+is transferred to the column array in the coordinate format.
+And to complete the first row of the coordinate format,
+the row index is transferred to the row array.
+The process is repeated for every non-null element in the matrix.
+The result is a matrix in a sparse 2D matrix format, namely
+the coordinate format.
+Generally, the array elements in sparse format do not contain nulls.
+In our example, it would be easy to reconstruct the original matrix
+from our sparse matrix format.
+The left-hand structure had non-null values in the first and last rows
+and the first and last columns.
+For instance, the value 3 in the first column and the last row, the value 8
+is in the first row and the value 1 is in the last column.
+In this example, the size of the matrix could
+have been implied from the data in the sparse matrix format.
+But the original matrix could have been larger
+with framing rows and columns that would be all nulls.
+Because of this possibility, we need to specify
+the dimensions of the original matrix.
+If a matrix does not have specified dimensions,
+then the dimensions are implied by the extreme values in the row and column
+arrays of the COO sparse matrix format.
+In practice, the actual matrix dimensions are often not relevant.
+[MUSIC PLAYING]

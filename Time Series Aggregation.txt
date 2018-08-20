@@ -1,0 +1,142 @@
+
+Hello.
+Welcome to an in-depth look at how to aggregate a time series using pandas.
+Before completing this lesson, you should already
+be familiar with scraping data from the internet
+and working with EAV and JSON data structures.
+In this lesson, we're going to download a data
+set that was created from real meterological data
+on five cities in China.
+We'll learn how to convert this data from the entity
+attribute value formats, typically found in JSON data structures,
+into a pandas time series data frame that is much easier to work with.
+Using pandas, we will then group or aggregate this data into regular time
+intervals so that we can consistently evaluate the time
+series mathematically.
+Once we have the time series grouped and set to a regular time interval,
+we can fill in any missing data points using interpolation.
+Let's grab this data set using the pandas module.
+
+We can use the pandas module to import this file directly from a URL.
+First, we import the pandas module and give it an alias of pd
+so that we do not have to keep retyping the entire word "pandas."
+Then we use the pandas read_csv function to pull out the file from the URL
+and assign it to a variable called pm2_file.
+Let's use the head function to print out just the first few lines
+of our PM2 file and take a look at what kind of data
+we are going to be working with.
+We just learned how to pull down a data set from a web URL
+and convert it into a pandas data frame using the read_csv function.
+However, pandas has some extra arguments that we
+can use with the read_csv function to make it even easier when working
+with time stamps and data frames.
+Converting our time stamp column into a pandas time stamp object
+will help us easily group data into bins of time, such as year, minute, month,
+and even weekday name.
+As before, we'll provide the file path to the read_csv function,
+but this time we will add the parse states
+argument that tells pandas to convert the time stamp
+column into a pandas time stamp object that allows us to quickly store
+our data by various time intervals, such as one second, one minute, days, weeks,
+months, and years.
+We will also add the inferred date time argument and set its value to true.
+This is a little trick to make parsing the time series column
+move a little faster.
+
+The dataset that we'll be working with is an extract
+from the UCI machine learning dataset repository that
+contains temperature sensor readouts for five different cities in China.
+We've extracted the information from this dataset
+to contain readouts for several different types of sensors
+in entity attribute value format.
+As you can see by looking at the data, the time stamps
+are not at regular intervals and appear to be
+approximations given from the sensor.
+Many data scientists will tell you that they
+spend a large portion of their time parsing data sets,
+and it's absolutely the truth.
+Since we're only interested in temperature, precipitation,
+and humidity, we'll subset the data frame to contain just those attributes.
+Because this analysis is going to be based on time periods,
+we need to index the data by time stamps so
+that we can easily use time as the basis for many downstream operations.
+Next, we'll make sure that our value column has been properly
+converted to float so that we can perform
+mathematical operations on the data.
+And finally, we will have to deal with missing values
+so we can avoid errors in downstream analysis.
+Subsetting data is a method of pulling out just the information
+you want to work with.
+This isn't always necessary in smaller data sets,
+but it's a good practice to get into if you'll ever be working with big data.
+The less data you start off with, the faster things will run.
+Building on the work we've already done, now we
+can pull out just the columns we want to work with.
+To subset the data by a column, we state the name of the data frame
+we want to work with.
+And then in square brackets, we specify the column
+we want to pull out, surrounding the column name by quotes
+because it's a string.
+Now let's say we only want to see rows in the data frame
+where the attribute column is equal to precipitation.
+We'll give pandas a condition for subsetting our data by saying,
+give me all the data where the attribute column is equal to precipitation.
+We can also chain these arguments together using logical operators.
+In our case, we want any rows where the attribute column
+equals precipitation, temp or humi.
+So we'll use the pipe to represent or.
+And as a last step, it's important to remember
+that when we are using chained assignments in pandas,
+we want to make sure that the subset we are pulling out
+returns a new data frame instead of simply referring back
+to the original one.
+Otherwise downstream operations could result in unexpected errors.
+To accomplish this, we can simply add on the .copy method to the end
+of our subsetting operation.
+Since we're interested in looking at this data for different time periods,
+it makes sense to use the time stamp column as an index.
+Setting time stamp as an index will allow us to easily aggregate
+this data by different time periods, resample subsets of the data,
+or interpolate data between time points.
+A pandas date time index object has built-in methods for easily pulling out
+data for a specific time interval.
+Throughout this lesson, we're going to build
+on this basic script for each step, so make sure
+you understand the code on each section before moving on to the next.
+Here, we are importing the pandas module with an alias of pd for ease of typing.
+Then we are reading in the PM2 file using
+pandas' read_csv function, which automatically
+imports the file as a data frame.
+The arguments we have given to the read_csv function, parsed dates,
+and inferred date time format allow pandas
+to automatically convert the time stamp column to a pandas time stamp series.
+Now that we have the information read into Python,
+we can feed the column label to pandas' set index function
+to specify which column we would like to use as an index.
+So in typical Python fashion, we use the format object.function
+and then in parentheses the parameters to call a function on an object.
+Here, the object is pm2_file, then .setindex, followed by parentheses.
+Inside the parentheses, square brackets with the column name
+in quotes because it's a string.
+Then we'll print out the head of the data frame
+to make sure everything looks good.
+Now that we have an index, let's take a look
+at some of the handy built-in functionality
+that this provides us with.
+
+We can now easily pull out all observations for a specific year,
+such as 2010.
+We can also specify a year and month.
+
+We can also call month and year on the index
+itself to pull out certain attributes of each time stamp, which
+allows us to do things like count the number
+of observations per year or month.
+
+When reading in a CSV file, unless you specify a data type manually
+for each column, Python will try to guess the proper data
+type for each column.
+Most of the time this works, but it's better
+to specify a data type for each column to avoid strange errors or any error
+in calculation downstream.
+This can be an important step for the accuracy of your calculations.

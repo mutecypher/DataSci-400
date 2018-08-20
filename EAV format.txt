@@ -1,0 +1,81 @@
+
+Hello.
+Today we're going to learn about a very common data model
+for storing information called the Entity Attribute Value Model,
+or EAV for short.
+So what exactly is the EAV model?
+The Entity Attribute Value format is a very efficient method
+for storing sparse data that does not contain empty values.
+In EAV, each entity, such as a customer number,
+can have many attributes, such as customer name, customer address, phone
+number, etc.
+In an EAV table, each entity and attribute
+is stored as a key value pair.
+If an entity does not have a value for that attribute,
+such as a customer number for a customer who does not have a telephone number,
+no row is created for that attribute.
+This keeps your table long and lean.
+EAV is a commonly used data format in many fields,
+such as the Internet of Things, and biology,
+especially for time-stamped data like temperature readouts.
+An EAV table consists of three columns--
+entity, attribute, and value.
+The entity is the item or event that is being described by attributes.
+For example, a customer ID, patient number, or time stamp.
+
+An attribute tells you what kind of value
+is going to be associated with an entity.
+For example, customer address, patient diagnosis, or degrees Fahrenheit.
+The value is the actual value given to the attributes.
+So for the customer address attribute, the value
+would contain the customer's physical address.
+To make this a little more clear, let's look
+at how an EAV table compares with a traditional relational database table.
+In the traditional database, you can see that each row
+contains all of the information related to one entity, a patient ID.
+Each time a patient visits the clinic, another row in the table
+is associated with this patient ID and if an attribute is missed,
+this results in a row that contains an empty field.
+We see an example of this in the second entry for patient 1
+where the patient did not have a temperature
+reading on their second office visit.
+Let's look at how this same information is represented in EAV format.
+In an EAV table, the patient ID and visit date
+can be combined to create an entity ID for every visit.
+The second column contains the attribute being
+assessed during the patient's visit.
+And the third column contains the value being measured or recorded.
+You can see that the EAV format is more efficient
+because unlike the traditional database, a row does not
+need to be added for the empty temperature reading on the patient's
+second visit.
+If you have a sparse dataset where a majority of records
+would contain empty values and the values in the cells
+are constantly changing, then the EAV model might be a good storage choice.
+Let's say we had an inventory table that kept track of parts and prices
+for a variety of home repair products.
+Some products might contain screws and bolts,
+while others come fully assembled.
+The prices and suppliers are constantly changing.
+In a traditional database this would be a nightmare,
+but the EAV model makes a lot of sense here.
+Now it's your turn to translate a traditional table to the EAV structure.
+Pause the video and try this at home before moving on to the next slide.
+
+A traditional EAV table should only have three columns containing
+one record for every attribute.
+Here the employee ID from the previous table becomes our entity value.
+Then we can break out each attribute into its own row.
+For employee 1, the first name, last name, and department
+were broken down into one row per attribute.
+Since a department was not listed for Thelma Louise,
+no row was created for that attribute.
+In this video, we learned about the structure of the EAV data model
+for storing sparse, constantly changing data.
+The Entity Attribute Value Model is a table
+consisting of one record per entity, attribute,
+where no values are left out of the table.
+In the IoT, data science, and biological science fields,
+you will be running into these tables a lot,
+so it's a good idea to become familiar with how to work with them.
+[MUSIC PLAYING]
