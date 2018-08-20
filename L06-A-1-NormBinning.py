@@ -15,7 +15,7 @@ X = pd.DataFrame(x)
 ############
 # freq, bounds = np.histogram(x, NB) # one way of obtaining the boundaries of the bins
 bounds = np.linspace(np.min(x), np.max(x), NB + 1) # more straight-forward way for obtaining the boundaries of the bins
-############
+############y
 
 def bin(x, b): # x = data array, b = boundaries array
     nb = len(b)

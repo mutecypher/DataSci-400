@@ -1,0 +1,70 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Aug 19 19:47:32 2018
+
+@author: mutecypher
+"""
+
+import numpy as np
+x = np.array([81, 3, 3, 4, 4, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 
+              6, 6, 7, 7, 7, 7, 8, 8, 9, 12, 24, 24, 25])
+
+
+
+x = np.array([81, 3, 3, 4, 4, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 
+              6, 6, 7, 7, 7, 7, 8, 8, 9, 12, 24, 24, 25])
+MaxBin1 = 5.5
+MaxBin2 = 7.5
+labeled = np.empty(28, dtype=str)     
+labeled[(x > -float("inf")) & (x <= MaxBin1)]      = "Bin1"
+labeled[(x > MaxBin1)       & (x <= MaxBin2)]      = "Bin2"
+labeled[(x > MaxBin2)       & (x <= float("inf"))] = "Bin3"
+
+
+import numpy as np
+x = np.array([81, 3, 3, 4, 4, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 
+              6, 6, 7, 7, 7, 7, 8, 8, 9, 12, 24, 24, 25])
+MaxBin1 = 29
+MaxBin2 = 55
+labeled = np.empty(28, dtype=str)     
+labeled[(x > -float("inf")) & (x <= MaxBin1)]      = "Bin1"
+labeled[(x > MaxBin1)       & (x <= MaxBin2)]      = "Bin2"
+labeled[(x > MaxBin2)       & (x <= float("inf"))] = "Bin3"
+
+
+import numpy as np
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.preprocessing import StandardScaler
+import pandas as pd
+x = np.array([1., -1, -1, 1, 1, 17, -3, 1, 1, 3])
+
+minmax_scale = MinMaxScaler().fit(x)
+standardization_scale = StandardScaler().fit(x)
+y = minmax_scale.transform(x)
+z = standardization_scale.transform(x)
+print ("\nScaled variable x using MinMax and Standardized scaling\n")
+print (np.hstack((np.reshape(x, (10,1)), y, z)))
+
+
+
+from sklearn.preprocessing import *
+
+minmax_scale = MinMaxScaler().fit(x)
+standardization_scale = StandardScaler().fit(x)
+y = minmax_scale.transform(x)
+z = standardization_scale.transform(X)
+print ("\nScaled variable x using MinMax and Standardized scaling\n")
+print (np.hstack((np.reshape(x, (10,1)), y, z)))
+
+
+x = np.array([ -10, 10, 1, -2, 4, -6, 8, -5, 3, 8])
+
+meany = np.mean(x)
+steady = np.std(x)
+a = (x - meany)/steady
+
+b =(a - min(a))/(max(a) - min(a))
+
+
+c = (b - np.mean(b))/np.std(b)
