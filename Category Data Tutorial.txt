@@ -1,0 +1,78 @@
+[MUSIC PLAYING]
+
+Some columns to not have numeric data.
+For instance, a column called vehicle might
+have names of vehicles like car, truck, auto, sedan, and bike.
+The vehicles do not have an inherent order.
+Columns like these are called categorical or nominal columns,
+as opposed to numeric columns.
+The different values in a categorical column are called categories.
+We will prepare and explore the categorical columns
+in a Pandas DataFrame.
+The first preparation step consists of decoding.
+The second step is imputation.
+We know that we will need the Pandas package.
+
+We download the data and assign the data as a data frame
+to an object called Mamm.
+Mamm is short for mammographic masses.
+Each row describes a patient and her breast tumor;
+each column describes an attribute of the patient or her tumor.
+We can determine from the data dictionary
+that the data types of the Shape and Margin columns should be categorical.
+
+Using the dtypes attribute, we see that these columns are indeed categorical.
+
+But when we view the first rows using the head method,
+we see that these columns look numeric.
+
+The numbers in these columns are codes for categories.
+These numbers may confuse some algorithms.
+We may believe that these codes are numbers
+even though they are cast as strings.
+It is best practice to decode these categories.
+From the data dictionary, we can find out
+which code belongs to which category.
+From the data dictionary, we see that the codes for Shape are 1, 2, 3, and 4.
+We should check our data to see if there are any additional codes that we
+haven't decoded.
+
+We can check the categories of Shape by using the unique method on Shape.
+Indeed, there is another code, namely question mark.
+Each question mark in Shape is a placeholder for a missing value.
+We will need to impute those letters.
+Decoding is a replacement.
+We replace each of the current values with an appropriate category.
+For instance, in the column named Shape, we would want to replace 1 with round.
+
+To that end, we specify the locations of 1 in a Boolean.
+
+On the left-hand side of the assignment, we use the Boolean to index
+the rows of the data frame that contain a 1.
+
+On the right-hand side of the assignment,
+we use the new name of the category, which is round.
+We repeat this process for every code in the Shape column.
+
+Now that we've decoded Shape, we need to focus our attention
+on the missing value.
+A common way to impute values in a categorical column
+is to use the most common category.
+We can get a count of each category using the value_counts method.
+
+We see that the most common shape is irregular.
+
+To replace the missing values, we apply the replacement pattern.
+
+Next, we apply the decoding process to the Margin column.
+We determine the imputation value for missing values
+and we find that circumscribed is the most common category.
+
+We impute the missing values in Margin.
+
+Finally, we can check the distribution of categories in Shape and Margin.
+
+To continue the data preparation of categorical columns in the data frame,
+we need to consider if we should simplify the categories
+and change these columns into numeric columns.
+[MUSIC PLAYING]

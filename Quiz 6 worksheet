@@ -1,0 +1,71 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Aug 24 08:22:34 2018
+
+@author: mutecypher
+"""
+import pandas as pd
+
+url = "http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data"
+
+pd.read_csv(url, header = none)
+
+
+DeviceTypes = [
+"Cell Phone", "Dish Washer", "Laptop", "Phone", "Refrigerator", "Server",
+"Oven", "Computer", "Drill", "Server", "Saw", "Computer", "Nail Gun",
+"Screw Driver", "Drill", "Saw", "Saw", "Laptop", "Oven", "Dish Washer",
+"Oven", "Server", "Mobile Phone", "Cell Phone", "Server", "Phone"]
+Devices = pd.DataFrame(DeviceTypes, columns=["Names"])
+
+
+plt.hist(Devices.loc[:, "Names"])
+
+
+Devices.loc[:,"Names"].value_counts().plot(kind='bar')
+
+
+plt.hist(Devices)
+
+Devices.loc[:, "Names"]
+
+
+import numpy as np
+x = np.array(["WA", "Washington", "Wash", "UT", "Utah", "Utah", "UT", "Utah", "IO"])
+
+
+
+len(Devices.loc[:,"Names"])
+
+len(Devices.loc[:,"Names"].unique())
+
+Devices.loc[:,"Names"]
+
+
+Devices.isnull().sum()
+
+
+
+scatter_matrix(Devices)
+
+
+Devices.head()
+
+
+url = "https://archive.ics.uci.edu/ml/machine-learning-databases/auto-mpg/auto-mpg.data"
+Auto = pd.read_csv(url, delim_whitespace=True, header=None)
+Auto.columns = ["mpg", "cylinders", "displacement", "horsepower", "weight", 
+                
+                
+Auto.loc[:,"origin"].value_counts()
+
+
+Auto.loc[:,"horsepower"].value_counts()
+
+
+AB = ["B", "A", "B", "B", "B", "A"]
+Test = pd.DataFrame(AB, columns=["AB"])
+
+
+Test.loc[:, "isA"] = Test.loc[:, "AB"].astype(int)
