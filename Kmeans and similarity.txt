@@ -1,0 +1,76 @@
+
+Let's take a step back now and try to understand what
+it is that k-means is doing and why.
+The main idea behind k-means is to split the dataset into clusters
+so that the data points in any given cluster are all similar to each other
+and are dissimilar to those of the other clusters.
+This is done by calculating the distances of each data point
+to the various centroids and picking the centroid that
+is most similar to the data point.
+Of course, the values of the centroids are not fixed,
+so this process is repeated several times to ensure that they make sense.
+Once the centroids stop moving about or their change is negligible,
+the algorithm comes to a halt, since running it longer
+won't provide better results.
+Of course, there are many ways to assess the similarity
+between a point and the centroid.
+However, distance metrics have been shown
+to be a very robust way to assess the similarity,
+though distance is reversed in proportion to similarity,
+which is why we take the smallest distance when
+we pick the most similar centroid.
+Naturally, similarity depends on the distance metrics used.
+Since the latter vary significantly from one another,
+we encourage you to try out different distance metrics
+to see what values they yield for the same two data points of your choice.
+Some of the most common distance metrics used in clustering,
+along with the formulas used to calculate them, are these three.
+Note that in the case of binary features,
+Manhattan distance is often referred to as Hamming distance
+and is more popular than Euclidean distance.
+So if your dataset comprises of a bunch of binary features,
+probably stemming from some categorical features that you binarized,
+then you're better off using the Manhattan distance
+in your k-means model.
+One of the pain points of k-means is selecting the best possible parameters
+for it.
+Because even though the algorithm itself is quite robust,
+if the parameters you pass to it are not good,
+then the results may be of poor quality.
+
+It's the old garbage in, garbage out rule referred to in programming.
+You need to be careful with what inputs you give to an algorithm
+if you want to get something meaningful out of it.
+As we saw earlier, k-means takes two parameters--
+the number of clusters k and the minimum allowed shifts in the centroid's th.
+K has to be an integer, and it has to be greater than one.
+Before selecting the specific value for it,
+we need to be aware of the geometry of the data set for best results.
+That's why it is strongly recommended that you create a plot of the dataset
+before running k-means.
+If the number of dimensions is very large,
+you can reduce the dataset with a methods like PCA
+into a more manageable number of dimensions, usually two or three.
+Then you can close the dataset in a way that you can view it in its entirety.
+Typically, k takes values between the two and 10,
+though it could be higher depending on the applications
+the dataset is used for.
+Regarding the th parameter, it has to be a float number.
+Especially think about it what exact value takes, since if it's too small
+it would take k-means a longer time to terminate.
+What if it's too large?
+The results it would yield are bound to be unreliable.
+Typical values for the th parameter are between 1 millionth to 1,000th.
+The best value for it will depend on the data set and the application.
+If you're in doubt about what value to use,
+it's best to err on the th smaller side, though.
+Here you can see an example of the k-means algorithm in action.
+On the left, you can view a plot for the dataset Iris.
+The original dataset has four features, but here we have selected just
+features three and four, which correspond
+to the dimensions of the petal of the flower, namely the length
+and the width of the Iris petal.
+Next to this plot, you can see the same dataset after it has been normalized.
+And the k-means algorithm has been applied to it.
+Notice how K-means picks up on the hot spots that are evident in the dataset
+and labels the corresponding data points accordingly.

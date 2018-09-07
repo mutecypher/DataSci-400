@@ -1,0 +1,84 @@
+[MUSIC PLAYING]
+
+So how do we actually perform clustering?
+First of all, let's make something clear.
+Clustering is an NP problem, meaning that it has no exact solution
+in a reasonable amount of time.
+If you were to try out every possible grouping,
+it would take an excessively long time, making the whole process impractical.
+That's why all clustering algorithms out there do some kind of approximation
+of the optimal grouping.
+To accomplish that, most of them use some kind
+of stochastic process in some part of them.
+In other words, they're not deterministic.
+You may run the same clustering algorithm three times,
+and each time get slightly different results.
+Also, although there are several clustering algorithms available,
+the one that is the most popular and also the simplest is k-means.
+This is the algorithm we look into in this lesson,
+though we encourage you to explore alternatives once you have mastered it
+as a tool for clustering.
+K-means takes a matrix X that comprises of N data points across m dimensions.
+The latter are also called features, even though some of them
+may not make it to final model we end up using,
+as they are not as important as others.
+However, at this point, they're all considered equally important
+and are all used to build our clustering model.
+K-means also involves the parameter k, which
+is related to the expected number of clusters in our dataset.
+This is some integer that is greater or equal to 2.
+K-means also takes as an input a parameter
+th, which is related to when exactly the algorithm converges.
+In other words, if left without this parameter,
+the algorithm may go on for a while, without necessarily
+improving its outcome.
+Naturally, we need to draw a line at one point
+and say that, when a certain threshold is reached,
+the algorithm has to stop and yield whatever result it has found so far.
+This is made possible through this parameter th, which is a float number.
+As far as the outputs of k-means are concerned, these are twofold.
+First of all, if it yields a vector--
+let's call it Y--
+that's comprised of N elements, each one of these elements
+corresponds to the assigned cluster of each data point in our original dataset
+X. These values, which are all integers, are often referred to as labels.
+K-means also yields another set of numbers, this time floats.
+Organized in a matrix formation--
+let's call it C--
+these numbers correspond to the centers of the various clusters.
+Matrix C has k rows and m columns.
+Each one of the cluster centers is also referred to as a centroid.
+The original centers of the clusters are chosen at random.
+This is why k-means usually yields a somewhat different result every time
+it is run.
+
+In this slide, you can see the pseudocode of the k-means algorithm.
+First, you need to initialize the centroids randomly.
+Let's denote them with the variables mu 1 to mu k.
+Mu is the Greek letter that also is used to symbolize
+the mean of a set of numbers.
+This is also where the algorithm gets its name from,
+since we use the arithmetic mean to calculate the centroids
+in later parts of the algorithm.
+However, since at the beginning we don't have any data points in the clusters,
+we start by assigning random values to these centers.
+The next couple of steps are repeated until the algorithm converges.
+This convergence takes place when the change in the mu values between two
+consecutive iterations is smaller than the predefined threshold parameter th.
+So for each one of these iterations, the algorithm performs two things.
+First of all, for each data point in the dataset--
+let's call it i--
+it checks to see which is the closest centroid to it.
+This is done using a distance metric--
+in this case, the Euclidean distance.
+Upon finding the centroid, it assigns that cluster label
+to that data point i.
+Then for each one of the clusters-- let's call it j--
+it calculates this expression to find out the new centroid values.
+So even if the centroids have random values
+at the beginning of the algorithm, they gradually
+shift into values that make more sense for the data at hand.
+These above two steps are repeated until convergence is reached.
+At that point, the algorithm yields the cluster
+assignments it has found along with the centroid values for all the clusters.
+[MUSIC PLAYING]

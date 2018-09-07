@@ -9,7 +9,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-## I will use the Iris data set for this assignment
+## I will use the Heart Disease data set for this assignment
 
 url = "http://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/processed.hungarian.data"
 

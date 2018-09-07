@@ -12,9 +12,9 @@ import numpy as np
 
 ## I will use the Heart Disease data set for this assignment
 
-url = "http://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/processed.hungarian.data"
+url = "http://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/reprocessed.hungarian.data"
 
-hearty = pd.read_csv(url, header=None)
+hearty = pd.read_table(url, sep = ' ', header=None)
 
 ## Having read the heart-disease.names data file, I assign names to the columns
 
@@ -242,6 +242,11 @@ hearty.loc[:, "59 to 66"] = (hearty.loc[:,"agebins"] == 5).astype(int)
 hearty = hearty.drop("age", axis = 1)
 hearty = hearty.drop("agebins", axis = 1)
 
+hearty.loc[:,"oldpeak"]= hearty.loc[:,"oldpeak"].replace(to_replace = "?", value = float("NaN"))
+hearty.loc[:,"oldpeak"] = pd.to_numeric(hearty.loc[:,"oldpeak"], errors = 'coerce')
+NANpeak = np.nanmean(hearty.loc[:,"oldpeak"])
+peak_out = np.isnan(hearty.loc[:,"oldpeak"])
+hearty.loc[peak_out,"oldpeak"]= NANpeak
 
 ## sort through "oldpeak" for outliers
 
@@ -323,7 +328,7 @@ hearty = hearty.drop("normal ecg", axis = 1)
 hearty = hearty.drop("not xrcise induced", axis = 1)
 hearty = hearty.drop("asymptomatic", axis = 1)
 
-hearty.to_csv('/Users/mutecypher/Documents/UW work/GitHub/DataSci-400/MikePearson-M02-Dataset.csv', sep =',', header = ["num", "Female", "above 120 mg/dl",
+hearty.to_csv('/Users/mutecypher/Documents/UW work/GitHub/DataSci-400/reprocessedhungarian-M02-Dataset.csv', sep =',', header = ["num", "Female", "above 120 mg/dl",
                                                 "ST-T abnormal"," left v htrophy","xrcise induced","upslope","flat","angina","non-angina",
                                                 "28 to 34","35 to 42","43 to 50","51 to 58","59 to 66","oldpeak normed",
                                                 "restbps normed","chol normed","thalach normed"])
