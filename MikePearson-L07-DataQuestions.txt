@@ -1,0 +1,18 @@
+1. Brief description of your data set (age of the data, number of observations and attributes)
+2. At least 1 yes-no or binary-choice question (Does it...? Is it...?)
+3. At least non-binary question (What is...? How many...? When does....?)
+4. Future improvements to the data set: What other related data could be collected?
+5. Source citation for your data set
+
+The data set I am using is the Heart Disease dataset from the UCI Machine Learning dataset. The file I processed was part of Hungarian data. The data was taken and processed between 1988 and 1991. There were originally 294 rows (data from 294 individuals) with 76 attributes gathered. These were processed (by the publishers of the data) down to 14 attributes for 294 individuals. There are also similar files from the Long Beach CA VA facility (200 individuals, 14 attributes), Cleveland (303 individuals with 14 attributes) and Switzerland (123 individuals with 14 attributes). One of the recorded attributes is the presence of heart disease. That can be used as part of the machine learning for training. When I begin the machine learning, I will investigate using all 4 data sets. 
+After my processing, two of the attributes were dropped (ca – number of vessels colored by fluoroscopy, and “thal”) since these were mostly missing data (more than 80%).  My processed data set had 294 rows with 19 attributes. 
+The binary question I would like to ask is, “does the data predict heart disease in a useable way?”  A non-binary question would be” what are the important attributes needed to predict heart disease?” Also, “when does gender make a difference in the presence of heart disease?” Another question can be “do the indicators change with age?”
+To improve the dataset, I have spoken to my girlfriend, who is a Nurse Practitioner. She tells me that blood troponin levels are measured now as part of evaluating individuals for heart disease. Troponins are proteins that are integral to muscle contraction in the heart (see Wikipedia article - https://en.wikipedia.org/wiki/Troponin for more details). 
+
+The dataset is from the UC Irvine Machine Learning Repository. The url of the gateway to the dataset is http://archive.ics.uci.edu/ml/datasets/Heart+Disease.  The creators of the data are:
+
+1. Hungarian Institute of Cardiology. Budapest: Andras Janosi, M.D. 
+2. University Hospital, Zurich, Switzerland: William Steinbrunn, M.D. 
+3. University Hospital, Basel, Switzerland: Matthias Pfisterer, M.D. 
+4. V.A. Medical Center, Long Beach and Cleveland Clinic Foundation: Robert Detrano, M.D., Ph.D. 
+
