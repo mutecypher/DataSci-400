@@ -1,0 +1,175 @@
+
+Hello, everyone.
+Today we will continue looking into machine
+learning, with a focus on predictive analytics models in particular.
+Let's start with a brief review of what machine learning is about.
+Just like we talked about previously, machine learning
+comprises of supervised, unsupervised, and semi-supervised,
+or reinforcement, learning.
+In this introductory course we'll be looking
+at only the first two types, as they are the most commonly used in practice.
+Also, clustering is under Unsupervised Learning umbrella,
+as we saw in the previous lesson.
+In today's class we'll focus on supervised learning, particularly
+predictive analytics methods and data modeling.
+In general, supervised learning includes these topics.
+However, in order to do this topic justice,
+today we'll focus on the first four subtopics
+and leave evaluation metrics for next time.
+Also, keep in mind that this is an introductory course.
+You'll be able to delve into this topic more in another course.
+So if you don't understand everything in today's class, that's OK.
+With your comment, you focus on the key concepts
+and on learning about what aspects of the scikit-learn package
+you need to use in order to apply them.
+Let's start with data modeling, which is a key part in everyday data science
+pipeline.
+In a nutshell, data modeling is developing
+a process that takes features as inputs and yields something
+not easily deducible from them.
+You can view it as a transformation of sorts that is characterized
+by generality and robustness.
+This means that the model needs to apply to all sorts of data, not just the data
+it is trained on, and that this performance must
+meet certain standards.
+In general, a data model can be a mathematical formula or something
+obscure, also known as a black box.
+The former kind of model is usually a statistical one
+and is great for interpreting the results,
+as well as for understanding why certain wrong predictions come about.
+However, these models tend to be less effective as the black box
+ones, which are all the rage since AI became widespread in data science.
+Black box models yield a result, but there
+is no way to figure out why this result came about
+or how the different features contribute to it.
+Naturally, data models in general are essential in every data science
+project.
+The reason is that data science aims to develop some standalone system that
+can generate insights and/or customize these insights to the user based
+on the data she provides to the system.
+You can think of such a system as a car.
+The data model, in this case, is the engine of the car.
+So even if you can omit certain things from a data science project,
+it is practically impossible to carry out a project like that
+without a data model.
+Also, it is important to keep in mind that the model doesn't
+have to be fancy.
+Even a simple model can generate useful insights
+if the data contains a strong enough signal
+and if this signal is expressed well in the features you use with that model.
+When it comes to how it works, data modeling
+makes use of statistical purposes, non-statistical ones,
+or a combination of both.
+The non-statistical processes include machine learning methods, mainly.
+These are the ones that are usually used in data science,
+though lately there's a tendency towards AI ones, too.
+AI systems, such as artificial neural networks, fuzzy inference systems,
+and more, are a special kind of machine learning
+model that are more self-sufficient and require less data processing work
+from us.
+Due to technological advents that allow for neural networks to scale easily,
+this particular family of methods has recently received a lot of interest,
+though there are more machine learning models
+that are very useful for everyday data science problems.
+Finally, data modeling that is geared towards predictions
+is referred to as predictive analytics.
+This is going to be our focus today, though we encourage
+you to look into various aspects of the modeling
+after you are done with exploring predictive analytics models.
+There are various kinds of data models that are applied in data science.
+In this slide, you can see some of the most commonly used ones.
+In general, you can have statistical ones, machine learning ones,
+or some combination of both.
+We'll look at some of them later on in this class today,
+so that you can get an idea of what they can do
+and how you can use them through the scikit-learn package in Python.
+
+Something worth noting is that oftentimes we
+resort to using a combination of data models for better performance.
+These combinatory data models are usually
+referred to as ensembles and are very popular in data science, especially
+today.
+Ensembles can comprise of two or more data models.
+These models can be of the same or of different kinds.
+The latter ensembles are usually better, as they tend to perform well
+in different kinds of data.
+So one model may compensate for another one's mistakes,
+yielding an overall better performance.
+In fact, if an ensemble is built properly,
+it generally performs better than any one of their components.
+The main issue with ensembles is that they are difficult to interpret or even
+understand fully.
+So they behave like black box models in a way.
+However, in cases where accurate results are preferred over interpretable ones,
+they find a very good use case.
+A classic example of a successful ensemble model
+is the winning model in the Netflix competition of Kaggle.
+
+Let's look now at how data modeling relates to the data science process
+so that we can get a better understanding of its role in it.
+Data modeling is a crucial part of the process following the data engineering
+phase.
+However, the fact that it is very important
+shouldn't let you think that it can be done at the expense of the other parts,
+such as feature engineering.
+In fact, its success largely depends on having
+good features, something that it is made possible
+through the feature engineering stage.
+Also, data modeling is closely linked to data visualization,
+which usually ensues.
+That's not to say that you don't create visuals in other parts of the pipeline,
+like in the data exploration phase, for example.
+However, the visuals you create for your report
+at the end of the data science process, the ones
+that you actually share with other stakeholders of the project,
+are usually created after you have completed your data models
+and are more refined.
+Another thing to note is that data modeling is usually done natively,
+though in some cases it is done on the cloud.
+It all depends on the resources you need and the data you have to work with.
+However, with computers becoming more and more powerful,
+it is possible to build even a sophisticated data
+model on a single machine and then scale it up on a computer cluster afterwards.
+If you are working with a very large amount of data,
+though, because of the signal being faint,
+you may do all the data modeling on the cloud or a computer cluster.
+Finally, models developed in the data modeling stage
+are used later on as part of the data product.
+Sometimes this means that the code is translated into some other programming
+language for improved performance.
+Whatever the case, the model itself rarely
+changes after it's been deployed in the data product creation stage.
+It may change in future iterations of the data science process,
+since it's often the case that a product needs to be improved
+or there is new data to work with.
+There are three main phases in a predictive analytics model.
+These are all very important, as they can make all the difference
+between a successful data science project and an unsuccessful one.
+Even if your data is fine, you may end up with a lousy model
+if you don't pay attention to each one of these phases.
+First of all, you have the training of the model.
+This involves feeding a predictive model some labeled data
+so that it can learn from it and come up with a reliable generalization,
+or representation, of how the input data relates to the targets.
+There is some sampling involved in this stage, though the specifics of it
+are not straightforward and are something
+we'll discuss in a later lesson.
+After the model has been trained, it goes through the testing phase.
+This has to do with using data with unknown targets to the particular model
+and measuring how much the model's predictions align
+with the actual targets.
+Note that testing is done on data we as data scientists know about.
+So to us, all the targets are known, even
+if we don't reveal them to the model.
+You can think of it as a quiz for the model.
+Once it passes it, then you can trust it to be
+applied on data that are completely unknown, both to the model and to us.
+This application of the model to unknown targets
+takes place in the deployments phase.
+That's when the model is put into production
+and starts bringing about value to the organization.
+Yet even at this stage, the model may use some refinements from time to time
+to ensure that it keeps performing well.
+The deployment stage usually takes part when the data product is
+being developed, and it almost always involves a computer cluster or a cloud
+as the platform it runs on.

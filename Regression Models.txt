@@ -1,0 +1,80 @@
+[MUSIC PLAYING]
+
+Now, let's shift gears and take a closer look at the regression methodology.
+In a nutshell, regression is a predictive analytics methodology where
+the variable predicted is continuous.
+A typical example is predicting the value of a stock
+based on various things like the P/E ratio, the past values of the stock,
+and several other factors.
+It's interesting that the regression is not that different to classification.
+If the target variable used in the regression problem is binned,
+regression can turn into classification.
+That's because the main thing that's different between these two
+methodologies is they way the corresponding problem is framed--
+the target variable, per se.
+In addition, regression is a popular methodology
+in predictive analytics with several methods and techniques for it.
+Also, people often think that it's mainly
+statistics methods that are used for it, but most, if not all,
+machine learning methods used for classification
+have a regression version as well.
+Finally, many data science problems can be framed as aggression ones,
+making regression a very popular methodology
+for a variety of data science projects.
+In this slide, you can see some examples of how
+regression can be applied in data science
+to solve some real world problems.
+Just like in classification, you can think of some of your own examples
+for this predictive analytics methodology.
+
+Just like classification, regression is not 100% precise.
+So what it basically figures out is the general relationship
+between the inputs and the output variable
+without it being able to predict everything well.
+Also, aggression is sometimes very challenging due to outliers
+and rare events taking place.
+These events are known as black swans and influence
+every predictive analytics problem.
+For example, if there's a new tech in a particular industry sector,
+this may stir things up quite a bit, making
+our predictions of the sales of a company in that sector be way off.
+Moreover, sometimes a problem that's framed as a regression
+is better framed as a classification due to the noise involved.
+However, binning the target variable is not always straightforward.
+And we need to document our thinking process,
+so that when someone revises our work, they
+can better understand what we're doing.
+Many integration problems are oftentimes standard
+to binary classification problems.
+Finally, regression performance often includes
+other factors, such as time and resources required,
+just like in the classification methodology.
+So even if one regression system is very precise,
+another one that is faster or takes up fewer resources
+may be deemed better as a model for a given project.
+
+The data involved in regression models is
+very similar to that in the classification ones.
+Again, we have a set of inputs, which is basically
+the features we use for the model.
+These take the form of a numeric two-dimensional array, also known
+as a matrix.
+The target variable is also numeric and takes the form of a vector.
+Many regressors allow for all this data to be stored in a data frame
+too, in which case, the target variable would
+be a data array in the data frame.
+The predictions of the regressor are a vector,
+though they could be a data array as well.
+However, they are always numeric and tend
+to be of the same scale as the target variable.
+Naturally, just like other predictive analytics models,
+a regressor would have its set of parameters, which are usually
+scalar variables of various types.
+The particular parameters would depend on the regression function used.
+
+In this slide, you can see some examples of this Python scikit-learn classes,
+as well as some selected functions from these classes for the most commonly
+used regressors.
+If you want to understand their function better,
+we suggest you take a look at the documentation at the scikit-learn site.
+[MUSIC PLAYING]

@@ -1,0 +1,96 @@
+
+Let's now switch gears and zero in on a particular methodology
+called classification.
+Classification is a predictive analytics methodology
+where the viable predicted, also known as the target, is categorical.
+For example, it could be animal types in a picture, something
+that the classification model attempts to predict using
+just the data from the image file.
+There's one particular kind of classification
+that is quite common called binary classification.
+This is when the target variable is binary, as, for example,
+the presence or absence of a disease in a patient.
+It's important to note that classification
+is one of the most researched methodologies in predictive analytics,
+with numerous methods and techniques for it.
+In fact, there are machine learning classification systems that
+go all the way back to the 60s, while statistical classification
+systems go back even farther.
+The value of classification is immense, and that's mainly
+because a large number of data science problems
+can be framed as classification ones.
+Take sentiment analysis, for example, a common data science
+application that is very useful to a variety of organizations
+across different industries.
+This is basically a classification problem.
+What are the classes of the different sentiments we want to predict?
+Also, sometimes it is framed as a binary problem,
+since it is much easier to predict the sentiment polarity, that is,
+positive or negative sentiment.
+In this slide, you can see a few more examples
+of the applications of classification in a data science setting.
+As an exercise, you can think of some applications of your own
+that are based on the classification methodology.
+
+Before we look at the specifics of classification models,
+let's take a look at certain things that are good to keep in mind
+when it comes to this predictive analytics methodology.
+First of all, classification, like every other data science methodology,
+is not 100% accurate.
+Please remember it is unrealistic to expect the classification
+system to be accurate all the time, or even mostly accurate in some cases.
+It all depends on the data and how well the model is trained.
+Naturally, the more diverse the dataset is
+and the better the classification model, the higher its accuracy is going to be.
+However, it rarely reaches 100%.
+Also, the classification output, also known as the predicted class,
+is often accompanied by some metric of certainty,
+usually in the form of a probability the classification is correct.
+This is just an estimate, however, so it could
+be that the prediction with high certainty attached to it
+is still wrong, while a prediction with low certainty can still be right.
+If the classification system is good, however, there's
+a relationship between the confidence of the system
+and how likely it is to be accurate for a given prediction.
+In other words, if a classification system is reliable,
+it predicts something accurately and with high certainty.
+Note that the classification model is often referred to as a classifier.
+Finally, classification performance often
+includes other factors, such as time and resources required.
+Therefore, in some cases it may be worth it
+to compromise the classifier's accuracy in order
+to obtain faster classification, and vice versa.
+Sacrificing speed for better accuracy is usually
+the case with advanced classification systems, such as the AI-based ones.
+Let's now take a look at the different kinds of data
+that you use in the classification model.
+First of all, we have the inputs of the model, which
+is basically the set of features used.
+This is usually in the form of a matrix, though it can be a data frame, too.
+The latter is like a matrix, but it allows
+for different types of variables, not just American binary ones.
+Then we have the labels, which correspond
+to the classes the various data points belong to.
+The labels are in the form of a vector or a data array.
+If you're handling data in a data frame, it's often the case
+that the labels are a column in that data frame
+where you have all your features.
+However, in the model, the labels are a different entity,
+regardless of where they are stored.
+Once you're on the classifier, you end up
+with two more entities that correspond to its predictions.
+These are the predictive classes and the corresponding confidence
+for these predictions.
+Both of these are vectors, or data arrays.
+The predictive classes are the same type as the labels,
+but the confidence vector is a float number, between zero and one,
+inclusive.
+Finally, there are also some parameters in the classification model.
+These vary greatly, as they depend on the classifier function.
+Most of them are single numbers, though in some cases
+we can have vectors or arrays, too.
+In this slide, you can see some examples of the Python scikit-learn classes,
+as well as some selected functions from these classes,
+for the most commonly used classifiers.
+To better understand their function, we recommend
+you take a look at the documentation in the scikit-learn site.
