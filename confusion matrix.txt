@@ -1,0 +1,101 @@
+[MUSIC PLAYING]
+
+The value of the confusion matrix, however,
+is not in organizing the four possibilities in a neat format.
+Its value lies in the various metrics that
+derive from it, shedding light on different aspects of the classifier's
+performance.
+Since which metric is best always depends on the problem at hand,
+it's always a good idea to calculate several of them,
+so that we can get the clear idea of the classifier's strengths and weaknesses.
+Let's start with the simplest metric, the accuracy rate.
+This is defined as the ratio of all the correct predictions
+over the total predictions.
+In practice, this is equal to the sum of the main diagonal elements
+over total elements.
+In other words, the accuracy rate can be represented
+with the formula AR equals, in brackets, TP plus TN over N.
+Another simple metric that's also often used in practice is the error rate.
+This is the ratio of all the erroneous predictions over the other predictions.
+Basically, it's like the accuracy rate, but rather
+than taking the elements of the main diagonal,
+you take the elements of the other diagonal instead.
+This is depicted in the formula ER equals, in brackets,
+FP plus FN over N. That's used for calculating it.
+Now, let's get into the more in-depth metrics, based on the confusion matrix.
+These are defined for each one of the two classes, by the way.
+First of all, we have the precision metric, which tells us,
+of all the predictions of a given class, what proportion of them
+the classifier got right.
+In mathematical terms, it is B equals TP over TP plus FP.
+Precision is a good measure for the reliability
+of the classifier's predictions.
+For this reason, many people confuse it with accuracy,
+even though it's a completely different metric.
+Recall is a similar metric to precision.
+But it looks at the classifier's performance from a different angle.
+It informs us of all the elements related
+to a given class, what proportion of them the classifier would write.
+In terms of math, it is R equals TP over TP plus FN.
+Recall is a measure of how well a classifier can
+predict a particular class.
+Since precision and recall are rivaling metrics,
+with one rising when the other one falls,
+there is a need to see how we can take both of them into account.
+One great way of doing that is through the F1 score.
+This medic is an average of these two metrics,
+leaning more towards the smaller one, whichever one that is.
+Mathematically, this is expressed as the harmonic mean of B and R,
+a measure of averaging non-0 elements of a vector.
+In this case, it takes the form of the following expressions.
+F1 equals 2P times R over B plus R, which is the same as 2TP over 2TP
+plus FB plus FN.
+Since F1 score depends on both of these metrics,
+a good F1 score is a more robust accuracy measure overall.
+Finally, let's look at a couple of other metrics
+that are useful in ROC analysis.
+The first one of them is the true positive rate,
+which is the same as recall.
+In statistics, it is known as sensitivity.
+The other metric is false positive rate, which is equivalent to true
+positive rate, but with false positives being its main focus.
+This is mathematically defined as FBR equals FB over FB plus TN.
+
+As you may have guessed, true positive rate and false positive rate
+are negatively correlated to each other.
+Also, it's good to have a high true positive rate
+and a low false positive rate.
+All of the confusion matrix examined today take values between 0 and 1,
+inclusive, and are often expressed as percentages.
+Apart from these metrics, there are several other ones, which
+are beyond the scope of this class.
+However, sometimes you need to create your own method to optimize,
+for a particular problem.
+For example, if false positives are more costly than false negatives,
+you can define a function like Z equals 10FP plus FN.
+Then you can use this function as your classifier's performance metric
+and try to minimize that.
+The specific coefficients of the false positives and the false negatives
+depend on the problem and may need to be configured precisely for the metric
+to make sense to its project stakeholders.
+Also, it is important to always take into account both false positives
+and false negatives in a function.
+Otherwise, you will end up with a trivial classifier that always predicts
+class A, or always predicts class B, in an attempt
+to eliminate all the false negatives and all the false positives, respectively.
+Before we move on to the other topics of this lesson,
+let's take a look at contingency tables, a term you may have come across
+in a statistics book.
+A contingency table is a more generic version of a confusion matrix,
+as it has multi-value variables represented in it.
+Also, a contingency table can include the relative frequencies in it, instead
+of just frequency counts.
+There are several metrics deriving from this kind of table, as well as tests.
+Since it's a topic that is studied thoroughly in statistics.
+In multi-class classification problems, you
+can use a contingency table instead of a confusion matrix.
+However, if you do that, you need to make changes to the accuracy measures
+accordingly.
+Whatever the case, if you have understood how a confusion matrix
+works, it shouldn't be a big challenge.
+[MUSIC PLAYING]

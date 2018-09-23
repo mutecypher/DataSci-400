@@ -1,0 +1,78 @@
+
+Let's now look at a couple of methods for identifying
+these anomalies in a dataset.
+For single dimensional data, things are fairly simple.
+Most of the time you can use the P-value of the data points, which often
+combined with a threshold can provide you
+with an easy and fast way for identifying outliers.
+There are also other statistical methods you can use, some of which
+would be better off for helping you figure out inliers.
+
+In this case, we focus more on outliers, though.
+For data over multiple dimensions you can
+use One-class SVMs, or parametrics statistical methods,
+such as multivariate Gaussian distributions.
+We'll look into those shortly.
+There are also other methods available, such as kNN,
+artificial neural networks, Rule-based systems and more.
+These are methods, however, are beyond the scope of this class.
+One-class SVMs are a very useful method for anomaly detection.
+They work like normal SVMs, but they're focusing
+on learning all the normal data in their training phase.
+All the data is presented as a single class,
+and then it is used for classifying every point you give them accordingly.
+You also need to define the cut-off threshold,
+a probability score below which a data point
+is considered an outsider of that normal class and, therefore, an anomaly.
+One-class SVMs are very effective for anomaly detection
+in highly complex datasets.
+Let's now look at some statistical methods
+for identifying anomalies in a dataset.
+For one dimensional data, first, we need to ensure
+that the distribution of the data is normal.
+Having done this, we can proceed to identify data points with p-values
+less or equal to a given threshold th.
+A value for th could be 0.01, or something in that neighborhood.
+As for n dimensional data, again, we need
+to ensure that each feature's distribution is normal.
+Then we can proceed to calculate the n dimensional z
+score for each data point, which is the equivalent of the p-value,
+but for n dimensions.
+Finally, we can identify data points with z
+less or equal to a given threshold th.
+Keep in mind that in this whole process you
+have the tacit assumption that the features of the dataset
+are independent to each other.
+If this doesn't hold true, then the data points
+we identify may not be actual outliers.
+Before we proceed to Python functions and classes for this topic,
+let's take a look at certain considerations
+we need to have to have a better perspective on this matter.
+First of all, it is often a good idea to perform dimensionality reduction
+before anomaly detection to reduce computational cost.
+After all, if the data point is an anomaly,
+it is bound to be an anomaly in a different feature space, too,
+as long as we do the dimensionality reduction properly.
+In addition, if a number of original features
+is greater than the number of data points,
+multivariate anomaly detection won't work.
+That's because the signal would be too diluted so normal data points may
+appear as anomalies, and vice versa.
+Another thing to keep in mind is that not every anomaly
+is a data point that should be removed.
+Sometimes anomalous data is useful, especially,
+if it's large enough to constitute clusters
+beyond the ones of normal data.
+As the normal detection approach to data analytics is not 100% accurate,
+we recommend you try different anomaly detection methods before labeling
+a data point as an anomaly.
+Finally, if you want some more information
+on multivariate anomaly detection, check out this Bitly link here.
+
+In this slide, you can see some of the most useful anomaly detection
+functions in Python, as well as the classes therein.
+We encourage you to familiarize yourself with them,
+and explore the various parameters through the corresponding documentation
+online.
+Also, should you wish to explore the One-class SVM,
+make sure you have a solid understanding of how SVMs work first.

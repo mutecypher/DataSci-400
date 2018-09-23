@@ -1,0 +1,109 @@
+[MUSIC PLAYING]
+
+Let's now take a look at the normal distribution and some related topics.
+First of all, understanding distributions, especially
+the normal distribution, is something very useful for various reasons.
+Since distributions are everywhere, being
+able to treat data according to the distribution
+it follows can, among other things, save us time and enable
+better understanding of the data.
+This way, we can focus on other, more sophisticated tasks of the data science
+process.
+Something closely linked to a distribution is the p-value concept.
+It basically is a probability value of an event
+to occur within a given range in a distribution.
+Also, it's useful to remember that p-values are useful in many data
+science processes, particularly when it comes to comparing
+features and other variables.
+Now let's look at the usual suspects of distributions, some of which
+you may have encountered already.
+In general, there are two types of distributions--
+those related to continuous variables, and those
+that represent discrete variables.
+Distributions for the first category include the normal distribution,
+which is also known as the Gaussian distribution, Poisson, Zipfian--
+which corresponds to the power law--
+Weibull distribution, and the uniform one.
+The last one is less common, though you often
+encounter it as an output of random number generators.
+Related to discrete variables are the binomial
+and the chi-squared distributions.
+There are also other ones, but more often than not, we encounter these two.
+
+In a nutshell, the normal or Gaussian distribution
+is a well-cited distribution since it is easier to work with,
+and finds many applications in data analytics.
+Variables following this distribution are anywhere
+in the real number spectrum.
+Also, once they're normalized, they have a mean value of 0
+and a standard deviation of 1.
+For this distribution only, a unique phenomenon occurs.
+Namely, the median is equal to the mode, which
+is equal to the mean of the variable following the normal distribution.
+In addition, most of the points are closer to the mean,
+with only very few of them being far from it on either side.
+This, however, is observed in several other [INAUDIBLE] distributions, too.
+What is more characteristic of a normal distribution,
+though, is its shape, which is very similar to a bell.
+That's why it is often referred to as a bell curve.
+In this slide, you can see a plot of the normal distribution.
+Note that the curve depicting the frequency
+as a function of the normalized variable doesn't touch the x-axis at any point.
+However, beyond a certain point, the frequency's so close to 0
+that the curve is practically indistinguishable from the x-axis.
+Closely linked to distributions are p-values.
+A p-value is the probability of a variable being
+in a particular part of the distribution.
+p-values are calculated using a reference table, or a function
+in a programming language.
+Also, p-values are related to confidence scores in predictive models--
+as, for example, a classifier.
+So you'd have to deal with them at one point or another.
+Usually, p-values refer to sections like, for example,
+P of x being greater than 5, or P(A), where A is values
+of x between minus 2 and 3, inclusive.
+Although in many cases you can produce a simulation that can provide you
+with that kind of information, it is often faster
+to use statistics for this task.
+Finally, all p-values are between 0 and 1, inclusive.
+Let's take another look at the normal distribution plot
+and see how p-values fit into all this.
+For starters, notice how each point on the x-axis
+represents a standard deviation.
+After all, the variable has been normalized.
+The percentages in each one of the slices of the plot
+represent the p-values of the corresponding ranges.
+For example, for x being between 0 and 1, we have 34%, or 0.34.
+However, if we take the next slice, the percentage
+drops significantly, as it's just 13.5%, or 0.135.
+The diminishing of the p-values for the same pattern as we
+move away from the center of the curve, which represents the mean.
+Also note the percentages near the double arrows underneath the curve.
+These represent the p-values of the corresponding ranges.
+For example, the first one shows the probability
+that the data point is between minus 1 and 1, which is the p-value of 68%,
+or 0.68.
+As you can see, the vast majority of data points
+lie between minus 3 and 3, which is why the p-value of the third arrow
+is 99.7%, or 0.997.
+The one thing that everybody learns in statistics
+that makes the normal distribution feel more useful
+is the central limit theorem.
+This is a fancy-sounding name for an observation someone made and proved
+about the distribution of the means of the samples
+of any distribution out there.
+So it's really not rocket science, even if it sounds like that to someone new
+to statistics.
+In a nutshell, the theorem states that the means of the samples
+form a normal distribution, regardless of the shape
+of the original distribution.
+So even if you don't have a normal distribution in your data
+and take a bunch of samples from it, if you write down
+the means of these samples, you'll see that they follow
+a normal distribution themselves.
+This theorem is very useful since it enables
+us to perform statistical analysis on various samples.
+Also, based on our analysis of these means,
+we can draw more reliable conclusions based on these samples,
+even if each one of them follows some particular distribution itself.
+[MUSIC PLAYING]

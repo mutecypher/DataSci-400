@@ -1,0 +1,105 @@
+[MUSIC PLAYING]
+
+One efficient and effective way of performing sensitivity analysis
+for a binary classification program, is through the ROC method.
+This is basically a way of evaluating the performance
+of a classifier for different threshold possibilities, using a chart.
+ROC stands for a Receiver Operating Characteristic
+and depicts the relationship between true positive rate
+and false positive rate.
+This is usually represented as a zigzag line, on a two-dimensional plot,
+and is referred to as the ROC curve.
+The more points you have in the ROC analysis, to using that plot,
+the more it looks like an actual curve.
+On the same plot, it is often a straight line between points 0, 0 and 1, 1.
+This line denotes the performance of a random classifier
+and is used as a frame of reference.
+In general, the farther the ROC curve is from that line
+the better the classifier's performance is.
+In this plot, you can see the ROC curve of several classifiers
+for a given problem.
+Although you would normally expect to see more overlap
+among the various curves, it is not uncommon to see big differences
+in the performances of different classifiers,
+when it comes to ROC analysis, like the differences you see in this example.
+That's often the case when you are comparing classifiers
+from different families all together, as, for example,
+a decision tree based and a neural network.
+In order to generate an ROC curve for a binary classification system,
+you start out with calculating the confusion matrix of a classifier,
+for a given probability threshold.
+Then you calculate the true positive rate and the false positive rate,
+based of the confusion matrix.
+With these values as references, you plot the corresponding point
+on a chart.
+Afterwards, you repeat the whole process using various other probability
+thresholds.
+Once you have enough points on the chart,
+you connect them all to generate a curve.
+This is the ROC curve for the classifier on that particular problem.
+So let's see how we can evaluate the various ROC curves,
+so that we can pick a robust and relatively stable model.
+Intuitively, the curve that is closer to the top-left corner is the best one.
+As a mnemonic rule, you can think of the most interesting route from LA
+to New York City.
+Obviously, it would have to be the one via Seattle.
+A good ROC curve would resemble the trip from LA to New York City via Seattle
+as it's depicted on a map.
+From an analytical perspective, the curve
+was the largest area under it is the best overall.
+Since calculating the area under a curve is a fairly challenging task,
+especially if you don't know the function that
+corresponds to that curve, it's best to use a heuristic for that task.
+What such heuristic, which is also a former metric in ROC analysis
+is the area under curve, or AUC for short.
+This is a common metric, and it takes values between 0 and 1.
+Anything from 0.5 and less is considered bad.
+While typical values of a AUC range between 0.7 and 0.9.
+Also, AUC is oftentimes expressed as a percentage.
+Based on all this, we can deduce that if a classifier is higher on the ROC chart
+than another classifier, it is generally better.
+Please note that generally better part here, though.
+That's because two classifiers may be both better than one
+another for different parts of this curve spectrum,
+regardless of their relative position in the ROC chart.
+In other words, comparing the AUC values of the two classifiers
+gives a general view of which one is better overall.
+Without this means that you should not consider
+using a classifier with a smaller AUC score at times,
+perhaps in an ensemble setting.
+Before we take a look at the Python functions related to today's lesson,
+let's view some things that are good to keep in mind regarding ROC curves.
+Apart from figuring out how well a binary classifier performs,
+the ROC curve can help us pick a probability
+threshold that makes sense to us.
+However, things are not always clear cut,
+since which probability threshold is optimal?
+Depends on our own view of the problem.
+In general, we offer thresholds that yield
+an ROC curve close the top-left corner.
+Also, the ROC curve is best used alongside the confusion matrix,
+rather than instead of it.
+So if you want to go in depth about how your binary classification
+model performs, it's good to spend a bit more time on the evaluation of it
+and look at the performance from different angles.
+Finally, it's quite useful to include an ROC chart in your report for a data
+science project.
+After all, it makes the whole process of selecting a model more scientific
+and enables you to justify your choice, with something
+you can share with the other stakeholders of the project
+without having to use too much math.
+In order to apply all these metrics in Python,
+you need to make use of the sklearn package and the metrics class
+in particular.
+So be sure to import it in the beginning of your script.
+For the confusion metrics and the metrics that stem from it,
+you need to make use of the corresponding functions shown here--
+same goes for the ROC curve.
+Note that any figures you produce via Python, outside Jupiter, are
+going to be shown in external windows.
+However, in the spider ID, these visuals will become
+part of some other part of the window.
+We recommend that if you produce any ROC curve plots,
+you save them afterwards as image files, since they can be very
+handy in reports and presentations.
+[MUSIC PLAYING]

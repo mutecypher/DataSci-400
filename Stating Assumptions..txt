@@ -1,0 +1,48 @@
+[MUSIC PLAYING]
+
+ZACHARIAS VOULGARIS: Apart from the statistical fallacies measured here,
+there are several other ones, too.
+However, describing them all would make this a very long class.
+Suffice to say that they have to do with how we use stats
+and how we interpret the results.
+of a statistical process, just like the fallacies we mentioned earlier.
+One thing to remember, though, is that fallacies
+are serious methodological issues that we
+need to be careful about in every data science project.
+They may be subtle and may even go unnoticed for a while.
+But they can easily jeopardize a data science
+project, and the model's reliability.
+However, having a solid understanding of the mindset behind statistical analysis
+is a good deterrent of various statistical fallacies,
+not just the ones we examined in this class.
+One thing we can do to help keep these fallacies at bay
+is state your assumptions as well as the [? statistical ?] methods' assumptions.
+Assumptions are often essentially in data science projects.
+However, they don't always get the attention they deserve.
+A wrong assumption can be the cause of a failed model.
+So whenever making assumptions about the data that
+directly influence your decisions about the models you use,
+it's good to document it.
+Most statistical methods involve a number of assumptions, too.
+That's why it is particularly easy to forget at least some of them.
+Yet whether you forget them or not, assumptions still
+influence their results noticeably in many cases.
+The [INAUDIBLE] you use to define an outlier, for example,
+might result in regarding as outliers data
+points that are actually quite normal.
+Also, other people may not be aware of the underlying assumptions of a data
+analytics process.
+This can create additional confusion, since if they take over that project
+one day, they may not be able to manage it properly and deal
+with any bugs that may arise when they try to run it on a new date.
+That's another reason why stating your assumptions,
+particularly in some easily accessible way, can add a lot of value
+to your work.
+Finally adhering to the assumptions is bound
+to lead to better interpretation of the results, while at the same time,
+help avoid any statistical fallacies.
+So it's best to not be presumptuous about assumptions
+and to take them seriously.
+They can be the difference between a smooth project
+and one ridden with statistical fallacies and other issues.
+[MUSIC PLAYING]

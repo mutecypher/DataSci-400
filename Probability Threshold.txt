@@ -1,0 +1,53 @@
+[MUSIC PLAYING]
+
+So how can we tweak a classifier so that it
+yields more true positives, for example, or how
+can we modify the classifier so that it yields less false negatives?
+When it comes to binary classification, this is quite easy.
+Apart from the various parameters of the classifier, which
+you can adjust for any kind of classification problem,
+in binary classification, you can also tweak what
+is known as the probability threshold.
+Most classifiers provide the probability score for each prediction they yield.
+This probability score is usually between 0.5 and 1, inclusive.
+Naturally, the higher the probability score, the more certain
+a classifier is of its prediction.
+In a binary classification problem, however, the probability score
+can also be reversed.
+So if a classifier is 60% confident of its prediction being class A,
+it is going to be 40% confident of its prediction
+being class B. This is because the prediction can only
+be one way or another, making this a useful method to leverage
+for adjusting the output of the classifier.
+In every binary classification problem where you have a probability score
+alongside each prediction, you can define
+a threshold of this probability score.
+This threshold can be the decision point for the classification process.
+If you don't alter it, this probability threshold often takes the value of 0.5
+by default, though its exact value depends on the classifier
+and how it is trained.
+In any case, it is important to note that the higher probability
+threshold would mean less predictions of class B and more of class
+A, or vice versa, depending on how the classifier is set up.
+As a result, tweaking the probability threshold
+can change the classification results substantially.
+That's something essential to do in many binary classification problems,
+as this is a very effective way to optimize the classifier's performance.
+Another thing worth considering in relation to the probability threshold
+is sensitivity analysis.
+This has to do with checking how stable the results of a classification system
+are.
+Interestingly, one effective way of doing this
+is by tweaking the probability threshold.
+Doing sensitivity analysis is not a nice-to-have, though.
+Usually, in a given problem, it is very important
+to have not just high accuracy in a classifier, but also stable accuracy.
+That's because when a classifier is deployed and is used in production,
+it needs to be reliable.
+Otherwise, it may create problems.
+It's good to keep in mind that there are other ways
+to perform sensitivity analysis, too.
+However, for binary classification problems,
+this is a quite common one that's also fairly easy
+and works for various classifiers.
+[MUSIC PLAYING]
